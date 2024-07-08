@@ -1,6 +1,8 @@
 
 @php
     $adminid = Auth::user()->id;
+    use App\Models\Setting\WebsiteSetting;
+    $site = WebsiteSetting::first();
 @endphp
 <nav class="fixed z-10 w-full bg-white border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700">
     <div class="px-3 py-3 lg:px-5 lg:pl-3">
@@ -22,9 +24,9 @@
                     </svg>
                 </button>
                 <a href="{{ route('dashboard') }}" class="flex items-center ml-2 md:mr-24 cursor-pointer">
-                    <img src="https://flowbite.com/images/logo.svg" class="h-8 mr-3" alt="Flowbite" />
+                    <img src="{{asset('storage/'.$site->logo)}}" class="h-10  w-40 mr-3" alt="" />
                     <span
-                        class="self-center text-xl font-semibold text-gray-500 uppercase sm:text-2xl whitespace-nowrap dark:text-gray-200">Flowbite</span>
+                        class="self-center text-xl font-semibold text-gray-500 uppercase sm:text-2xl whitespace-nowrap dark:text-gray-200"></span>
                 </a>
                 <form action="#" method="GET" class="hidden lg:block lg:pl-3.5">
                     <label for="topbar-search" class="sr-only">Search</label>

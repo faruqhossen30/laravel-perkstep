@@ -40,6 +40,8 @@ Route::get('/test', function () {
 });
 
 Route::get('/',[HomepageController::class,'homepage'])->name('homepage');
+Route::get('blog/{slug}',[BlogpageController::class,'blogPage'])->name('blog.page');
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

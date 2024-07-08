@@ -7,6 +7,10 @@ use App\Http\Controllers\Admin\Blog\BlogController;
 use App\Http\Controllers\Admin\DashboardController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\Client\ClientController;
+use App\Http\Controllers\Admin\Faq\FaqController;
+use App\Http\Controllers\Admin\Review\ReviewController;
+use App\Http\Controllers\Admin\Service\ServiceController;
 use App\Http\Controllers\Admin\Setting\AboutmeSettingController;
 use App\Http\Controllers\Admin\Setting\ChatSectionController;
 use App\Http\Controllers\Admin\Setting\ContactSettingController;
@@ -25,9 +29,12 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     // Route::resource('role', RoleController::class);
     // Start Work
 
-    Route::resource('category',           CategoryController::class);
-
-    Route::resource('user',               UserController::class);
+    Route::resource('category',    CategoryController::class);
+    Route::resource('faq',         FaqController::class);
+    Route::resource('review',      ReviewController::class);
+    Route::resource('service',     ServiceController::class);
+    Route::resource('client',      ClientController::class);
+    Route::resource('user',        UserController::class);
 
     Route::get('profile/',[AdminProfileController::class,'adminProfile'])->name('admin.profile');
     Route::put('profile/update/{id}',[AdminProfileController::class,'UpdateAdminProfile'])->name('admin.profile.update');
