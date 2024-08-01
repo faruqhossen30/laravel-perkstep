@@ -1,6 +1,6 @@
 
 @php
-    use App\Models\service;
+    use App\Models\Service;
     $services = Service::all();
 @endphp
 

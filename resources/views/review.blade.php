@@ -1,5 +1,5 @@
 @php
-    use App\Models\review;
+    use App\Models\Review;
     $reviews = Review::all();
 @endphp
 
