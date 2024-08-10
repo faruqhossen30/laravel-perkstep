@@ -4,11 +4,15 @@ use App\Http\Controllers\Admin\Admin\RoleController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\AdminProfileController;
 use App\Http\Controllers\Admin\Blog\BlogController;
+
 use App\Http\Controllers\Admin\DashboardController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\Client\ClientController;
+use App\Http\Controllers\Admin\ContactController;
+use App\Http\Controllers\Admin\EditorImageController;
 use App\Http\Controllers\Admin\Faq\FaqController;
+use App\Http\Controllers\Admin\PortfolioController;
 use App\Http\Controllers\Admin\Review\ReviewController;
 use App\Http\Controllers\Admin\Service\ServiceController;
 use App\Http\Controllers\Admin\Setting\AboutmeSettingController;
@@ -28,13 +32,14 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
     // Route::resource('role', RoleController::class);
     // Start Work
-
+    Route::post('editor/image/store', [EditorImageController::class, 'store'])->name('editorimagestore');
     Route::resource('category',    CategoryController::class);
     Route::resource('faq',         FaqController::class);
     Route::resource('review',      ReviewController::class);
     Route::resource('service',     ServiceController::class);
     Route::resource('client',      ClientController::class);
     Route::resource('user',        UserController::class);
+    Route::resource('portfolio',   PortfolioController::class);
 
     Route::get('profile/',[AdminProfileController::class,'adminProfile'])->name('admin.profile');
     Route::put('profile/update/{id}',[AdminProfileController::class,'UpdateAdminProfile'])->name('admin.profile.update');
@@ -52,4 +57,9 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
         Route::post('/contact-setting/store',[ContactSettingController::class,'contactsettingstore'])->name('contact.setting.store');
 
     });
+
+
+
 });
+route::get('/contact',[ContactController::class,'create'])->name('contact');
+route::post('/contact/send',[ContactController::class,'send'])->name('contact.send');

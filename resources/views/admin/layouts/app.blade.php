@@ -51,7 +51,7 @@
             document.documentElement.classList.remove('dark')
         }
     </script>
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @vite(['resources/css/app.css', 'resources/js/app.js','resources/js/app.js'])
     @stack('styles')
 </head>
 

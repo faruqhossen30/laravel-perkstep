@@ -24,7 +24,7 @@
                             </div>
                             <div class="col-span-12 lg:col-span-4 bg-white dark:bg-gray-800 p-4 rounded-lg">
                                 <input class="dropify" type="file" id="myDropify" name="thumbnail" data-default-file="{{ asset('storage/' . $review->thumbnail) }}">
-                                <x-form.input label="Rating" name="rating" type="number" value="{{ $review->rating }}" />
+                                {{-- <x-form.input label="Rating" name="rating" type="number" value="{{ $review->rating }}" /> --}}
 
                                 <div class="py-2">
                                     <select id="" name="rating"

@@ -79,7 +79,7 @@
                         </div>
                     </li>
                     <li>
-                        <a href="#contactsection" class="text-gray-800  hover:border-b-2  ">Contact</a>
+                        <a href="{{route('contact.page')}}" class="text-gray-800  hover:border-b-2  ">Contact</a>
                     </li>
                 </ul>
             </div>

@@ -32,20 +32,16 @@
                                 </div>
                                 <x-form.select-status :status="$blog->status" />
 
-                                <textarea name="description" class="ckeditor" id="editor" cols="30" rows="10">{{ $blog->description }}</textarea>
-                                @error('description')
-                                    <p class="text-sm text-red-600 mt-2">{{ $message }}</p>
-                                @enderror
-
+                                    <textarea name="description" id="myeditorinstance" cols="30" rows="10"></textarea>
+                                    @error('description')
+                                        <p class="text-sm text-red-600 mt-2">{{ $message }}</p>
+                                    @enderror
                                 <x-divider title="SEO Section" />
-
                                 <x-form.input label="Meta Title" name="meta_title"   value="{{ $blog->project_description }}" />
                                 <x-form.textarea label="Meta Description" name="meta_description" value="{{ $blog->meta_description }}" />
                                 <x-form.input label="Meta Keyword" name="meta_keyword" value="{{ $blog->meta_keyword }}"  />
-
                             </div>
                             <div class="col-span-12 lg:col-span-4 bg-white dark:bg-gray-800 p-4 rounded-lg">
-                                {{-- <x-form.thumbnail-single :thumbnail="$blog->thumbnail" /> --}}
                                     <div class="col-span-3 pt-1 space-y-2">
                                         <label for="thumbnail"
                                             class="text-gray-500 dark:text-gray-500 text-sm font-medium">Image</label>
@@ -53,10 +49,8 @@
                                             data-default-file="{{ asset('storage/' . $blog->thumbnail) }}">
                                     </div>
                                 <x-form.textarea label="Project Description" name="project_description" value="{{ $blog->project_description }}"/>
-                                {{-- <div class="py-2"> --}}
                                 <label for="category_ids" class="block text-sm font-medium mb-2 dark:text-white">Select
                                     Service</label>
-
                                 <select id="category_ids" name="category_ids[]"
                                     class="js-example-basic-multiple py-3 px-4 pe-9 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"
                                     multiple="multiple">
@@ -67,18 +61,11 @@
                                         </option>
                                     @endforeach
                        s         </select>
-                                {{-- </div> --}}
-
-
                                 <x-form.select :data="$categories"lable="category" name="category_id" />
                                 <label for="color">Header Color:</label>
                                 <input type="color" value="{{$blog->color}}" name="color" id="color" />
-
                             </div>
-
                         </div>
-
-
                         <x-form.submit-button  title="Update"/>
                     </form>
                 </div>
@@ -93,6 +80,9 @@
         .dropify-message p {
             font-size: 24px
         }
+        .tox .tox-promotion-link {
+            visibility: hidden;
+        }
     </style>
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 @endpush
@@ -101,6 +91,22 @@
     <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <script src="{{ asset('js/dropify.min.js') }}"></script>
+    <script src="{{asset('tinymce/js/tinymce/tinymce.min.js')}}"></script>
+    <script>
+        tinymce.init({
+            license_key: 'gpl',
+            selector: 'textarea#myeditorinstance', // Replace this CSS selector to match the placeholder element for TinyMCE
+            plugins: 'code table lists image',
+            toolbar: 'undo redo | blocks | bold italic | alignleft aligncenter alignright | indent outdent | bullist numlist | code | table | image',
+            image_title: true,
+            file_picker_types: 'image',
+            image_uploadtab: true,
+
+            paste_data_images:false,
+            images_upload_url: '{{ route('editorimagestore') . '?_token=' . csrf_token() }}',
+            automatic_uploads: true,
+        });
+    </script>
     <script>
         $(document).ready(function() {
             $('.dropify').dropify({

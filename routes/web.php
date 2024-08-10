@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\AboutpageController;
+use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Ajax\GalleryAjaxController;
 use App\Http\Controllers\ArticlesController;
 use App\Http\Controllers\BlogComtroller;
@@ -41,6 +42,10 @@ Route::get('/test', function () {
 
 Route::get('/',[HomepageController::class,'homepage'])->name('homepage');
 Route::get('blog/{slug}',[BlogpageController::class,'blogPage'])->name('blog.page');
+Route::get('contact',[ContactController::class,'ContactPage'])->name('contact.page');
+Route::get('servicepage',[ServicepageController::class,'ServicePage'])->name('service.page');
+
+
 
 
 Route::middleware('auth')->group(function () {
