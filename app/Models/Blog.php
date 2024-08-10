@@ -28,4 +28,6 @@ class Blog extends Model
         return $this->belongsToMany(Category::class, 'blog_categories');
     }
 
+
+
 }

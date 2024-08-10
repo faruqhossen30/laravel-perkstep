@@ -1,5 +1,5 @@
 @php
-    use App\Models\client;
+    use App\Models\Client;
     $clients = Client::all();
 @endphp
 

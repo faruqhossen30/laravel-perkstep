@@ -11,9 +11,9 @@
         </div>
         <div class="grid grid-cols-12 gap-12">
             <div class="col-span-6 space-y-3">
-                <div id="accordion-collapse" data-accordion="collapse" data-active-classes="bg-transparent" class="space-y-4" >
+                <div id="accordion-collapse" data-accordion="collapse" data-active-classes=" bg-transparent"  class="space-y-4" >
                     @foreach ($faqs as $key => $faq)
-                        <div class="bg-[#F2FBF8] border rounded-lg border-green-500 p-4 space-y-4 ">
+                        <div class="bg-[#F2FBF8] border rounded-lg border-green-500 p-4 space-y-4">
                             <h6 id="accordion-collapse-heading-{{ $faq->id }}" >
                                 <button type="button" class="flex justify-between text-[20px] font-bold w-full"
                                     data-accordion-target="#accordion-collapse-body-{{ $faq->id }}" aria-expanded="true"

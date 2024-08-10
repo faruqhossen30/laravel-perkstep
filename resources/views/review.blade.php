@@ -1,6 +1,6 @@
 @php
-    use App\Models\review;
-    $reviews = Review::all();
+    use App\Models\Review;
+    $reviews = Review::get();
 @endphp
 
 

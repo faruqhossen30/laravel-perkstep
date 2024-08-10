@@ -1,122 +1,109 @@
 @extends('layouts.app')
 @section('content')
-    <!-- Start grid -->
-    <section class="py-2">
-        <div class=" max-w-[1100px] mx-auto">
-            <div class="grid grid-cols-12 gap-y-10 lg:gap-10">
-                <div class="col-span-12 lg:col-span-12">
-                    <div class=" rounded-md  ">
-                        <div class="relative">
-                            <img src="{{asset('storage/'.$blog->thumbnail)}}" alt="" class="rounded-md img-cover w-full h-96 mb-7">
-                            <div class="absolute z-20 -bottom-7 left-7">
-                                <img src="{{asset('storage/'.$blog->thumbnail)}}" alt="" class="rounded-md img-fluid h-16 w-16">
-                            </div>
-                        </div>
-                        <div class="p-6">
-                            <div class="grid grid-cols-12">
-                                <div class="col-span-12 lg:col-span-8">
-                                    <div class="relative">
-                                        <h5 class="mb-1 text-gray-900 font-bold text-4xl">{{$blog->title}}</h5>
-                                    </div>
-                                </div>
-                                {{-- <div class="col-span-12 lg:col-span-4">
-                                    <div class="flex gap-3 md:justify-end">
-                                        <div class="w-8 h-8 text-center text-gray-100 transition-all duration-300 bg-transparent border rounded cursor-pointer border-gray-100/50 hover:bg-red-600 hover:text-white hover:border-transparent dark:border-zinc-700">
-                                            <a href="javascript:void(0)"><i class="uil uil-heart-alt text-lg leading-[1.8]"></i></a>
-                                        </div>
-                                        <div class="w-8 h-8 text-center text-gray-100 transition-all duration-300 bg-transparent border rounded cursor-pointer border-gray-100/50 hover:bg-red-600 hover:text-white hover:border-transparent dark:border-zinc-700">
-                                            <a href="javascript:void(0)"><i class="uil uil-setting text-lg leading-[1.8]"></i></a>
-                                        </div>
-                                    </div>
-                                </div> --}}
-                            </div>
+<section class="bg-gray-100 py-24">
+    <div class="container mx-auto">
 
 
-                            <div class="mt-5 prose-xl">
-                                <h5 class="mb-3 text-gray-900  font-semibold text-xl">Job Description</h5>
-                                <div>
-                                    <p class="mb-0 text-gray-500 ">{!! $blog->description!!}</p>
-                                </div>
-                            </div>
+        <form action="" method="get">
 
+        <h6 class="text-center uppercase text-[#01C778] font-bold">our blog</h6>
+        <h2 class="text-center text-5xl  font-semibold leading-[56px]">How SEO London Services <br> Can Work for you</h2>
+        <div class=" bg-white flex justify-between px-3 mb-3 mt-6 ">
+            <div class=" p-6 flex  space-x-2">
+                {{-- <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                    class="w-4 h-4 text-gray-800 ">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M8.25 6.75h12M8.25 12h12m-12 5.25h12M3.75 6.75h.007v.008H3.75V6.75Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0ZM3.75 12h.007v.008H3.75V12Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm-.375 5.25h.007v.008H3.75v-.008Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
+                </svg>
 
-                            <div class="mt-4">
-                                <h5 class="mb-3 text-gray-900  font-semibold text-xl">Tags</h5>
-                                <span class="px-2 py-1 text-black border  rounded text-11 group-data-[theme-color=violet]:bg-violet-500 group-data-[theme-color=sky]:bg-sky-500 group-data-[theme-color=red]:bg-red-500 group-data-[theme-color=green]:bg-green-500 group-data-[theme-color=pink]:bg-pink-500 group-data-[theme-color=blue]:bg-blue-500">PHP</span>
-                                <span class="px-2 py-1 text-black border  rounded text-11 group-data-[theme-color=violet]:bg-violet-500 group-data-[theme-color=sky]:bg-sky-500 group-data-[theme-color=red]:bg-red-500 group-data-[theme-color=green]:bg-green-500 group-data-[theme-color=pink]:bg-pink-500 group-data-[theme-color=blue]:bg-blue-500">JS</span>
-                                <span class="px-2 py-1 text-black border  rounded text-11 group-data-[theme-color=violet]:bg-violet-500 group-data-[theme-color=sky]:bg-sky-500 group-data-[theme-color=red]:bg-red-500 group-data-[theme-color=green]:bg-green-500 group-data-[theme-color=pink]:bg-pink-500 group-data-[theme-color=blue]:bg-blue-500">Marketing</span>
-                                <span class="px-2 py-1 text-black border  rounded text-11 group-data-[theme-color=violet]:bg-violet-500 group-data-[theme-color=sky]:bg-sky-500 group-data-[theme-color=red]:bg-red-500 group-data-[theme-color=green]:bg-green-500 group-data-[theme-color=pink]:bg-pink-500 group-data-[theme-color=blue]:bg-blue-500">REACT</span>
-                                <span class="px-2 py-1 text-black border  rounded text-11 group-data-[theme-color=violet]:bg-violet-500 group-data-[theme-color=sky]:bg-sky-500 group-data-[theme-color=red]:bg-red-500 group-data-[theme-color=green]:bg-green-500 group-data-[theme-color=pink]:bg-pink-500 ">PHOTOSHOP</span>
-                            </div>
+                <svg class="w-4 h-4 text-gray-800 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                    fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M9.143 4H4.857A.857.857 0 0 0 4 4.857v4.286c0 .473.384.857.857.857h4.286A.857.857 0 0 0 10 9.143V4.857A.857.857 0 0 0 9.143 4Zm10 0h-4.286a.857.857 0 0 0-.857.857v4.286c0 .473.384.857.857.857h4.286A.857.857 0 0 0 20 9.143V4.857A.857.857 0 0 0 19.143 4Zm-10 10H4.857a.857.857 0 0 0-.857.857v4.286c0 .473.384.857.857.857h4.286a.857.857 0 0 0 .857-.857v-4.286A.857.857 0 0 0 9.143 14Zm10 0h-4.286a.857.857 0 0 0-.857.857v4.286c0 .473.384.857.857.857h4.286a.857.857 0 0 0 .857-.857v-4.286a.857.857 0 0 0-.857-.857Z" />
+                </svg> --}}
 
-                            <div class="pt-3 mt-4">
-                                <ul class="flex flex-wrap items-center gap-3 mb-0">
-                                    <li class="mt-1 font-bold text-lg ">
-                                        Share this job:
-                                    </li>
-                                    <li class="mt-1">
-                                        <a href="https://www.facebook.com/sharer/sharer.php?u="
-                                            class="px-3 py-1 text-xs font-medium text-center inline-flex items-center text-white bg-blue-700 rounded-lg hover:bg-blue-800  focus:outline-none  ">
-                                            <svg class="w-4 h-4 text-white " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24"
-                                                height="24" fill="currentColor" viewBox="0 0 24 24">
-                                                <path fill-rule="evenodd"
-                                                    d="M13.135 6H15V3h-1.865a4.147 4.147 0 0 0-4.142 4.142V9H7v3h2v9.938h3V12h2.021l.592-3H12V6.591A.6.6 0 0 1 12.592 6h.543Z"
-                                                    clip-rule="evenodd" />
-                                            </svg>
-                                            facebook
-                                        </a>
-                                        <a href="https://twitter.com/intent/tweet?url="
-                                            class="px-3  py-1  space-x-2 text-xs font-medium text-center inline-flex items-center text-white bg-[#1DA1F2] rounded-lg hover:bg-blue-800  focus:outline-none   ">
-                                            <svg class="w-4 h-4 text-white   mr-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24"
-                                                height="24" fill="currentColor" viewBox="0 0 24 24">
-                                                <path fill-rule="evenodd"
-                                                    d="M22 5.892a8.178 8.178 0 0 1-2.355.635 4.074 4.074 0 0 0 1.8-2.235 8.343 8.343 0 0 1-2.605.981A4.13 4.13 0 0 0 15.85 4a4.068 4.068 0 0 0-4.1 4.038c0 .31.035.618.105.919A11.705 11.705 0 0 1 3.4 4.734a4.006 4.006 0 0 0 1.268 5.392 4.165 4.165 0 0 1-1.859-.5v.05A4.057 4.057 0 0 0 6.1 13.635a4.192 4.192 0 0 1-1.856.07 4.108 4.108 0 0 0 3.831 2.807A8.36 8.36 0 0 1 2 18.184 11.732 11.732 0 0 0 8.291 20 11.502 11.502 0 0 0 19.964 8.5c0-.177 0-.349-.012-.523A8.143 8.143 0 0 0 22 5.892Z"
-                                                    clip-rule="evenodd" />
-                                            </svg>
-                                            twitter
-                                        </a>
-                                        <a href="https://www.linkedin.com/shareArticle?mini=true&url="
-                                            class="px-3  py-1  space-x-2 text-xs font-medium text-center inline-flex items-center text-white bg-[#E4405F] rounded-lg hover:bg-blue-800  focus:outline-none   d ">
-                                            <svg class="w-4 h-4 text-white mr-1 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24"
-                                                height="24" fill="none" viewBox="0 0 24 24">
-                                                <path fill="currentColor" fill-rule="evenodd"
-                                                    d="M3 8a5 5 0 0 1 5-5h8a5 5 0 0 1 5 5v8a5 5 0 0 1-5 5H8a5 5 0 0 1-5-5V8Zm5-3a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3V8a3 3 0 0 0-3-3H8Zm7.597 2.214a1 1 0 0 1 1-1h.01a1 1 0 1 1 0 2h-.01a1 1 0 0 1-1-1ZM12 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm-5 3a5 5 0 1 1 10 0 5 5 0 0 1-10 0Z"
-                                                    clip-rule="evenodd" />
-                                            </svg>
-                                            instagram
-                                        </a>
-                                        <a href="https://www.linkedin.com/shareArticle?mini=true&url="
-                                            class="px-3  py-1  space-x-2 text-xs font-medium text-center inline-flex items-center text-white bg-[#0A66C2] rounded-lg hover:bg-blue-800  focus:outline-none    ">
-                                            <svg class="w-4 h-4 text-white " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24"
-                                                height="24" fill="currentColor" viewBox="0 0 24 24">
-                                                <path fill-rule="evenodd"
-                                                    d="M12.51 8.796v1.697a3.738 3.738 0 0 1 3.288-1.684c3.455 0 4.202 2.16 4.202 4.97V19.5h-3.2v-5.072c0-1.21-.244-2.766-2.128-2.766-1.827 0-2.139 1.317-2.139 2.676V19.5h-3.19V8.796h3.168ZM7.2 6.106a1.61 1.61 0 0 1-.988 1.483 1.595 1.595 0 0 1-1.743-.348A1.607 1.607 0 0 1 5.6 4.5a1.601 1.601 0 0 1 1.6 1.606Z"
-                                                    clip-rule="evenodd" />
-                                                <path d="M7.2 8.809H4V19.5h3.2V8.809Z" />
-                                            </svg>
-                                            linkedin
-                                        </a>
-                                        <a href="https://api.whatsapp.com/send?text="
-                                            class="px-3  py-1  space-x-2 text-xs font-medium text-center inline-flex items-center text-white bg-green-400 rounded-lg hover:bg-blue-800  focus:outline-none   ">
-                                            <svg class="w-4 h-4 text-white mr-1 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24"
-                                                height="24" fill="currentColor" viewBox="0 0 24 24">
-                                                <path fill-rule="evenodd"
-                                                    d="M21.7 8.037a4.26 4.26 0 0 0-.789-1.964 2.84 2.84 0 0 0-1.984-.839c-2.767-.2-6.926-.2-6.926-.2s-4.157 0-6.928.2a2.836 2.836 0 0 0-1.983.839 4.225 4.225 0 0 0-.79 1.965 30.146 30.146 0 0 0-.2 3.206v1.5a30.12 30.12 0 0 0 .2 3.206c.094.712.364 1.39.784 1.972.604.536 1.38.837 2.187.848 1.583.151 6.731.2 6.731.2s4.161 0 6.928-.2a2.844 2.844 0 0 0 1.985-.84 4.27 4.27 0 0 0 .787-1.965 30.12 30.12 0 0 0 .2-3.206v-1.516a30.672 30.672 0 0 0-.202-3.206Zm-11.692 6.554v-5.62l5.4 2.819-5.4 2.801Z"
-                                                    clip-rule="evenodd" />
-                                            </svg>
-                                            Whatsup
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-
-                    </div>
-
-                </div>
+                <label  class="block text-sm font-medium mb-2 ">
+                    Category</label>
+                <select  name="category_id" onchange="this.form.submit()"
+                    class="  py-1 px-2  block  border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none"
+                   >
+                    <option>Select Categories</option>
+                    @foreach ($categories as $cat)
+                        <option value="{{ $cat->id }}">{{ $cat->name }}</option>
+                    @endforeach
+                </select>
 
             </div>
+
+            <div class=" flex space-x-2  ">
+                <div class="flex items-center space-x-1">
+                    <label for="">Order:</label>
+                    <select name="per_page" onchange="this.form.submit()"
+                        class="py-1 px-4 pe-9 block w-full border-gray-200 rounded-lg text-xs focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none">
+                        <option value="">Show:</option>
+                        <option value="10" @if (isset($_GET['per_page']) && $_GET['per_page'] == '10') selected @endif>10</option>
+                        <option value="20" @if (isset($_GET['per_page']) && $_GET['per_page'] == '20') selected @endif>20</option>
+                        <option value="30" @if (isset($_GET['per_page']) && $_GET['per_page'] == '30') selected @endif>30</option>
+                    </select>
+                </div>
+                <div class="flex items-center space-x-1">
+                    <label for="">Order:</label>
+                    <select name="orderby" onchange="this.form.submit()"
+                        class="py-1 px-4 pe-9 block w-full border-gray-200 rounded-lg text-xs focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none">
+                        <option value="">Sort by:</option>
+                        <option value="asc">Latest</option>
+                        <option value="desc">Oldest</option>
+                    </select>
+                </div>
+                {{-- <div class="flex items-center space-x-1">
+                    <label for="">Sort:</label>
+                    <select name="sortby" onchange="this.form.submit()"
+                        class="py-1 px-4 pe-9 block w-full border-gray-200 rounded-lg text-xs focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none">
+                        <option value="">Price:</option>
+                        <option value="asc">Low to Hith</option>
+                        <option value="desc">High to low</option>
+                    </select>
+                </div> --}}
+            </div>
         </div>
-    </section>
-<!-- End grid -->
+        <div id="ourservice" class="owl-carousel owl-theme grid grid-cols-12 gap-3 pb-10">
+            @foreach (  $blogs as   $blog)
+            <div class="col-span-4" >
+                <div class="bg-white hover:bg-[#01C778] p-6 border rounded-lg space-y-6 group  h-[450px]">
+                    <div class="">
+                        <img src="{{ asset('storage/'.$blog->thumbnail) }}" class="max-h-48 min-h-48  max-w-[360px] min-w-[360px]"  alt="" srcset="">
+                    </div>
+                    <div class="">
+                        <ul class="flex items-center space-y-1 text-gray-800 list-disc list-inside  space-x-3">
+                            <p class="text-[17.5px] font-medium  group-hover:text-white">By Admin</p>
+                            <li class="text-[17px] group-hover:text-white">
+                                6 min read
+                            </li>
+                        </ul>
+                        <h3 class="text-[22px] font-bold group-hover:text-white">{{$blog->title}}</h3>
+                    </div>
+                    <div class="">
+                        <a href="{{route('blog.page',$blog->slug)}}" class=" space-x-2">
+                            <div class="flex items-center group-hover:text-[#01C778] underline underline-offset-[8px] hover:underline-white">
+                                <p class="text-lg font-semibold group-hover:text-white">Read More</p>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                                    class="size-4 group-hover:text-white">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="m5.25 4.5 7.5 7.5-7.5 7.5m6-15 7.5 7.5-7.5 7.5" />
+                                </svg>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            @endforeach
+        </div>
+        <div class="py-4">
+            {{ $blogs->links() }}
+        </div>
+    </form>
+    </div>
+</section>
+
 @endsection
+
+

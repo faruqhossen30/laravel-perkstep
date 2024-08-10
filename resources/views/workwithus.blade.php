@@ -7,7 +7,7 @@
 
             <div class="flex justify-center py-10">
 
-                <a href="#" class="inline-flex items-center justify-center bg-[#01C778] text-white font-semibold px-6 py-3 rounded-full space-x-3">
+                <a href="{{route('contact.page')}}" class="inline-flex items-center justify-center bg-[#01C778] text-white font-semibold px-6 py-3 rounded-full space-x-3">
                     <p>Contact Us Now</p>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-4 group-hover:text-white">
                         <path stroke-linecap="round" stroke-linejoin="round" d="m5.25 4.5 7.5 7.5-7.5 7.5m6-15 7.5 7.5-7.5 7.5" />

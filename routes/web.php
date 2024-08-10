@@ -41,9 +41,12 @@ Route::get('/test', function () {
 });
 
 Route::get('/',[HomepageController::class,'homepage'])->name('homepage');
-Route::get('blog/{slug}',[BlogpageController::class,'blogPage'])->name('blog.page');
+Route::get('blog',[BlogpageController::class,'blogPage'])->name('blog.page');
 Route::get('contact',[ContactController::class,'ContactPage'])->name('contact.page');
 Route::get('servicepage',[ServicepageController::class,'ServicePage'])->name('service.page');
+Route::get('portfoliopage',[PortfoliopageController::class,'Portfoliopage'])->name('portfolio.page');
+Route::get('portfolio/{slug}',[PortfoliopageController::class,'SinglePortfolio'])->name('portfolio.single');
+Route::get('aboutus',[AboutpageController::class,'AboutPage'])->name('about.page');
 
 
 
