@@ -1,5 +1,11 @@
+@php
+    use App\Models\Service;
+    $Services = Service::get();
+@endphp
 
- @extends('layouts.app')
+@extends('layouts.app')
+
+@section('OG')
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@">
@@ -11,40 +17,42 @@
 
     <!-- Facebook -->
     <meta property="og:url" content="{{ route('homepage') }}">
-    <meta property="og:title" content="{{ $blog->title }}">
-    <meta property="og:description" content="{{ $blog->description }}">
+    <meta property="og:title" content="{{ $service->title }}">
+    <meta property="og:description" content="{{ $service->description }}">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="{{ asset('storage/' . $blog->thumbnail) }}">
+    <meta property="og:image" content="{{ asset('storage/' . $service->thumbnail) }}">
     <meta property="og:image:type" content="image/png">
 
- @section('content')
+@endsection
 
- <!-- Start grid -->
-   <section class="py-2">
+@section('content')
+
+  <!-- Start grid -->
+  <section class="py-2">
     <div class=" max-w-[1100px] mx-auto">
         <div class="grid grid-cols-12 gap-y-10 lg:gap-10">
             <div class="col-span-12 lg:col-span-12">
                 <div class=" rounded-md  ">
                     <div class="relative">
-                        <img src="{{asset('storage/'.$blog->thumbnail)}}" alt="" class="rounded-md img-cover w-full h-96 mb-7">
+                        <img src="{{asset('storage/'.$service->thumbnail)}}" alt="" class="rounded-md img-cover w-full h-96 mb-7">
                         <div class="absolute z-20 -bottom-7 left-7">
-                            <img src="{{asset('storage/'.$blog->thumbnail)}}" alt="" class="rounded-md img-fluid h-16 w-16">
+                            <img src="{{asset('storage/'.$service->thumbnail)}}" alt="" class="rounded-md img-fluid h-16 w-16">
                         </div>
                     </div>
                     <div class="p-6">
                         <div class="grid grid-cols-12">
                             <div class="col-span-12 lg:col-span-8">
                                 <div class="relative">
-                                    <h5 class="mb-1 text-gray-900 font-bold text-4xl">{{$blog->title}}</h5>
+                                    <h5 class="mb-1 text-gray-900 font-bold text-4xl">{{$service->title}}</h5>
                                 </div>
                             </div>
                         </div>
 
 
                         <div class="mt-5 prose-xl">
-                            <h5 class="mb-3 text-gray-900  font-semibold text-xl">Job Description</h5>
+                            <h5 class="mb-3 text-gray-900  font-semibold text-xl">Description</h5>
                             <div>
-                                <p class="mb-0 text-gray-500 ">{!! $blog->description!!}</p>
+                                <p class="mb-0 text-gray-500 ">{!! $service->description!!}</p>
                             </div>
                         </div>
 
@@ -64,7 +72,7 @@
                                     Share this job:
                                 </li>
                                 <li class="mt-1">
-                                    <a href="https://www.facebook.com/sharer/sharer.php?u={{ route('single.blog.page', $blog->id) }}"target="_blank"
+                                    <a href="https://www.facebook.com/sharer/sharer.php?u={{ route('single.service.page', $service->id) }}" target="_blank"
                                         class="px-3 py-1 text-xs font-medium text-center inline-flex items-center text-white bg-blue-700 rounded-lg hover:bg-blue-800  focus:outline-none  ">
                                         <svg class="w-4 h-4 text-white " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24"
                                             height="24" fill="currentColor" viewBox="0 0 24 24">
@@ -74,7 +82,7 @@
                                         </svg>
                                         facebook
                                     </a>
-                                    <a href="https://twitter.com/intent/tweet?url={{ route('single.blog.page', $blog->id) }}" target="_blank"
+                                    <a href="https://twitter.com/intent/tweet?url={{ route('single.service.page', $service->id) }}" target="_blank"
                                         class="px-3  py-1  space-x-2 text-xs font-medium text-center inline-flex items-center text-white bg-[#1DA1F2] rounded-lg hover:bg-blue-800  focus:outline-none   ">
                                         <svg class="w-4 h-4 text-white   mr-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24"
                                             height="24" fill="currentColor" viewBox="0 0 24 24">
@@ -84,7 +92,7 @@
                                         </svg>
                                         twitter
                                     </a>
-                                    <a href="https://www.linkedin.com/shareArticle?mini=true&url="
+                                    <a href="https://www.linkedin.com/shareArticle?mini=true&url=" target="_blank"
                                         class="px-3  py-1  space-x-2 text-xs font-medium text-center inline-flex items-center text-white bg-[#E4405F] rounded-lg hover:bg-blue-800  focus:outline-none   d ">
                                         <svg class="w-4 h-4 text-white mr-1 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24"
                                             height="24" fill="none" viewBox="0 0 24 24">
@@ -94,7 +102,7 @@
                                         </svg>
                                         instagram
                                     </a>
-                                    <a href="https://www.linkedin.com/shareArticle?mini=true&url="
+                                    <a href="https://www.linkedin.com/shareArticle?mini=true&url=" target="_blank"
                                         class="px-3  py-1  space-x-2 text-xs font-medium text-center inline-flex items-center text-white bg-[#0A66C2] rounded-lg hover:bg-blue-800  focus:outline-none    ">
                                         <svg class="w-4 h-4 text-white " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24"
                                             height="24" fill="currentColor" viewBox="0 0 24 24">
@@ -105,7 +113,7 @@
                                         </svg>
                                         linkedin
                                     </a>
-                                    <a href="https://api.whatsapp.com/send?text="
+                                    <a href="https://api.whatsapp.com/send?text=" target="_blank"
                                         class="px-3  py-1  space-x-2 text-xs font-medium text-center inline-flex items-center text-white bg-green-400 rounded-lg hover:bg-blue-800  focus:outline-none   ">
                                         <svg class="w-4 h-4 text-white mr-1 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24"
                                             height="24" fill="currentColor" viewBox="0 0 24 24">
@@ -129,4 +137,7 @@
 </section>
 <!-- End grid -->
 
+
 @endsection
+
+

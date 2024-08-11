@@ -1,22 +1,17 @@
 @extends('admin.layouts.app')
 @section('breadcrumb')
     <div class="flex justify-between items-center">
-        <x-breadcrumb pageone="review" />
+        <x-breadcrumb pageone="Review" />
         <x-button.button-plus route="{{ route('review.create') }}" title="Create review" />
     </div>
 @endsection
-
-
 @section('content')
-
     @if (Session::has('create'))
     <x-toast.success />
     @endif
     @if (Session::has('warning'))
     <x-toast.warning />
     @endif
-
-
     <div class="bg-white dark:bg-transparent ">
         <div class="flex flex-col">
             <div class="-m-1.5 overflow-x-auto">
@@ -36,7 +31,7 @@
                                         Designation</th>
                                     <th scope="col"
                                         class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase dark:text-gray-400">
-                                        rating</th>
+                                        Rating</th>
                                     <th scope="col"
                                         class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase dark:text-gray-400">
                                         Date</th>
@@ -75,7 +70,7 @@
                                     </tr>
                                 @empty
                                     <tr>
-                                        <td colspan="4" class="text-center">No review found</td>
+                                        <td colspan="4" class="text-center">No Review found</td>
                                     </tr>
                                 @endforelse
 

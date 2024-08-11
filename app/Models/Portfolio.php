@@ -20,4 +20,11 @@ class Portfolio extends Model
         'meta_keyword',
         'status'
     ];
+
+
+    public function categories()
+    {
+        return $this->belongsToMany(Category::class, 'portfolio_categories');
+    }
+
 }

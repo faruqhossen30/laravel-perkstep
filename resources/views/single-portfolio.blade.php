@@ -1,4 +1,29 @@
+@php
+    use App\Models\Portfolio;
+    $portfolios = portfolio::get();
+@endphp
+
 @extends('layouts.app')
+
+@section('OG')
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@">
+    <meta name="twitter:creator" content="@">
+    <meta name="twitter:title" content="Monodeep Samanata Blogs | All Latest Contribution of Monodeep ">
+    <meta name="twitter:description"
+        content="Stay updated with Monodeep Samanta's blog, featuring insights and tips from an experienced  UI/UX designer.">
+    <meta name="twitter:image" content="{{ asset('logo.jpg') }}">
+
+    <!-- Facebook -->
+    <meta property="og:url" content="{{ route('homepage') }}">
+    <meta property="og:title" content="{{ $portfolio->title }}">
+    <meta property="og:description" content="{{ $portfolio->description }}">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="{{ asset('storage/' . $portfolio->thumbnail) }}">
+    <meta property="og:image:type" content="image/png">
+
+@endsection
 
 @section('content')
 
@@ -47,7 +72,7 @@
                                     Share this job:
                                 </li>
                                 <li class="mt-1">
-                                    <a href="https://www.facebook.com/sharer/sharer.php?u="
+                                    <a href="https://www.facebook.com/sharer/sharer.php?u={{ route('portfolio.single', $portfolio->id) }}" target="_blank"
                                         class="px-3 py-1 text-xs font-medium text-center inline-flex items-center text-white bg-blue-700 rounded-lg hover:bg-blue-800  focus:outline-none  ">
                                         <svg class="w-4 h-4 text-white " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24"
                                             height="24" fill="currentColor" viewBox="0 0 24 24">
@@ -57,7 +82,7 @@
                                         </svg>
                                         facebook
                                     </a>
-                                    <a href="https://twitter.com/intent/tweet?url="
+                                    <a href="https://twitter.com/intent/tweet?url={{ route('portfolio.single', $portfolio->id) }}" target="_blank"
                                         class="px-3  py-1  space-x-2 text-xs font-medium text-center inline-flex items-center text-white bg-[#1DA1F2] rounded-lg hover:bg-blue-800  focus:outline-none   ">
                                         <svg class="w-4 h-4 text-white   mr-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24"
                                             height="24" fill="currentColor" viewBox="0 0 24 24">
@@ -67,7 +92,7 @@
                                         </svg>
                                         twitter
                                     </a>
-                                    <a href="https://www.linkedin.com/shareArticle?mini=true&url="
+                                    <a href="https://www.linkedin.com/shareArticle?mini=true&url=" target="_blank"
                                         class="px-3  py-1  space-x-2 text-xs font-medium text-center inline-flex items-center text-white bg-[#E4405F] rounded-lg hover:bg-blue-800  focus:outline-none   d ">
                                         <svg class="w-4 h-4 text-white mr-1 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24"
                                             height="24" fill="none" viewBox="0 0 24 24">
@@ -77,7 +102,7 @@
                                         </svg>
                                         instagram
                                     </a>
-                                    <a href="https://www.linkedin.com/shareArticle?mini=true&url="
+                                    <a href="https://www.linkedin.com/shareArticle?mini=true&url=" target="_blank"
                                         class="px-3  py-1  space-x-2 text-xs font-medium text-center inline-flex items-center text-white bg-[#0A66C2] rounded-lg hover:bg-blue-800  focus:outline-none    ">
                                         <svg class="w-4 h-4 text-white " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24"
                                             height="24" fill="currentColor" viewBox="0 0 24 24">
@@ -88,7 +113,7 @@
                                         </svg>
                                         linkedin
                                     </a>
-                                    <a href="https://api.whatsapp.com/send?text="
+                                    <a href="https://api.whatsapp.com/send?text=" target="_blank"
                                         class="px-3  py-1  space-x-2 text-xs font-medium text-center inline-flex items-center text-white bg-green-400 rounded-lg hover:bg-blue-800  focus:outline-none   ">
                                         <svg class="w-4 h-4 text-white mr-1 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24"
                                             height="24" fill="currentColor" viewBox="0 0 24 24">

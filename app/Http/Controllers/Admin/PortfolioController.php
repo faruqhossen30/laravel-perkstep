@@ -8,7 +8,9 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use App\Models\Blog;
+use App\Models\Category;
 use App\Models\Portfolio;
+use App\Models\PortfolioCategory;
 use Illuminate\Support\Facades\Storage;
 
 class PortfolioController extends Controller
@@ -27,8 +29,8 @@ class PortfolioController extends Controller
      */
     public function create()
     {
-
-        return view('admin.portfolio.create');
+        $categories = Category::get();
+        return view('admin.portfolio.create',compact('categories'));
     }
 
     /**
@@ -62,7 +64,17 @@ class PortfolioController extends Controller
             $data['thumbnail'] = $file_name;
         }
 
-        Portfolio::create($data);
+      $portfolio = Portfolio::create($data);
+
+        if(!empty($request->category_ids)){
+            foreach($request->category_ids as $id){
+               PortfolioCategory::create([
+                   'portfolio_id'=>$portfolio ->id,
+                   'category_id'=>$id
+               ]);
+            }
+       }
+
         Session::flash('create');
         return redirect()->route('portfolio.index')->with('create','Portfolio successfully created');
     }
@@ -80,9 +92,17 @@ class PortfolioController extends Controller
      */
     public function edit(string $id)
     {
+        // $blog = Blog::with('categories')->firstWhere('id', $id);
+        // $categories = Category::get();
 
-        $portfolio = Portfolio::firstWhere('id', $id);
-        return view('admin.portfolio.edit', compact('portfolio'));
+        // $cat_ids = $blog->categories->pluck('id')->toArray();
+
+
+
+        $portfolio = Portfolio::with('categories')->firstWhere('id', $id);
+        $categories = Category::get();
+        $cat_ids = $portfolio->categories->pluck('id')->toArray();
+        return view('admin.portfolio.edit', compact('portfolio','categories','cat_ids'));
     }
 
     /**
@@ -96,7 +116,6 @@ class PortfolioController extends Controller
                 'description'         => 'required',
             ]
         );
-
         $data = [
            'title'                => $request->title,
             'slug'                => Str::slug($request->title, '-'),
@@ -111,6 +130,15 @@ class PortfolioController extends Controller
         if($request->file('thumbnail')){
             $file_name = $request->file('thumbnail')->store('thumbnail/portfolio/');
             $data['thumbnail'] = $file_name;
+        }
+        if(!empty($request->category_ids)){
+            PortfolioCategory::where('portfolio_id', $id)->delete();
+             foreach($request->category_ids as $cat){
+                PortfolioCategory::create([
+                    'portfolio_id' => $id,
+                    'category_id'  => $cat
+                ]);
+             }
         }
         Portfolio::firstWhere('id',$id)->update($data);
         Session::flash('warning');

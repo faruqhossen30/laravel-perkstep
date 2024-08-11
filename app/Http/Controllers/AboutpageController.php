@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class AboutpageController extends Controller
 {
-    public function AboutPage() {
+    public function aboutPage() {
 
         return view('aboutus');
     }

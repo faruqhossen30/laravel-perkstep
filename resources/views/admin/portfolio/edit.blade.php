@@ -31,6 +31,20 @@
                                     @enderror
                                     <x-form.select-status :status="$portfolio->status" />
 
+
+                                        <label for="category_ids" class="block text-sm font-medium mb-2 dark:text-white">Select
+                                            Service</label>
+                                        <select id="category_ids" name="category_ids[]"
+                                            class="js-example-basic-multiple py-3 px-4 pe-9 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"
+                                            multiple="multiple">
+                                            <option>Select Categories</option>
+                                            @foreach ($categories as $cat)
+                                                <option value="{{ $cat->id }}"
+                                                    @if (in_array($cat->id, $cat_ids)) selected @endif>{{ $cat->name }}
+                                                </option>
+                                            @endforeach
+                            </select>
+
                             </div>
                             <div class="col-span-12 lg:col-span-4 bg-white dark:bg-gray-800 p-4 rounded-lg">
                                     <div class="col-span-3 pt-1 space-y-2">

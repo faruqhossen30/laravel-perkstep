@@ -10,7 +10,7 @@ class ContactController extends Controller
 
 
 
-    public function ContactPage() {
+    public function contactPage() {
 
         return view('contact');
 

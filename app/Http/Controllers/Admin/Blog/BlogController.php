@@ -19,7 +19,6 @@ class BlogController extends Controller
      */
     public function index()
     {
-
         if(!Auth::user()->can('blog list')){
             abort(403);
         }
@@ -36,7 +35,6 @@ class BlogController extends Controller
             abort(403);
         }
         $categories = Category::get();
-
         return view('admin.blog.blog.create', compact('categories'));
     }
 
@@ -45,13 +43,9 @@ class BlogController extends Controller
      */
     public function store(Request $request)
     {
-
-        // return $request->all();
         $request->validate(
             [
                 'title'               => 'required',
-                'short_description'   => 'required',
-                'project_description' => 'required',
                 'description'         => 'required',
                 'description'         => 'required',
                 'status'              => 'required',
@@ -60,26 +54,18 @@ class BlogController extends Controller
         $data = [
             'title'               => $request->title,
             'slug'                => Str::slug($request->title, '-'),
-            'short_description'   => $request->short_description,
-            'project_description' => $request->project_description,
             'description'         => $request->description,
-            // 'thumbnail'        => $request->thumbnail,
             'user_id'             => Auth::user()->id,
             'meta_title'          => $request->meta_title,
             'meta_description'    => $request->meta_description,
             'meta_keyword'        => $request->meta_keyword,
             'status'              => $request->status
         ];
-
         if($request->file('thumbnail')){
             $file_name = $request->file('thumbnail')->store('thumbnail/blog/');
             $data['thumbnail'] = $file_name;
         }
-
         $blog = Blog::create($data);
-
-
-
         if(!empty($request->category_ids)){
              foreach($request->category_ids as $id){
                 BlogCategory::create([
@@ -88,9 +74,6 @@ class BlogController extends Controller
                 ]);
              }
         }
-
-
-
         Session::flash('create');
         return redirect()->route('blog.index')->with('create','Blog successfully created');
     }
@@ -115,10 +98,7 @@ class BlogController extends Controller
         }
         $blog = Blog::with('categories')->firstWhere('id', $id);
         $categories = Category::get();
-
         $cat_ids = $blog->categories->pluck('id')->toArray();
-
-
         return view('admin.blog.blog.edit', compact('categories','blog','cat_ids',));
     }
 
@@ -133,19 +113,13 @@ class BlogController extends Controller
         $request->validate(
             [
                 'title'               => 'required',
-                'short_description'   => 'required',
-                'project_description' => 'required',
                 'description'         => 'required',
             ]
         );
-
         $data = [
            'title'                => $request->title,
             'slug'                => Str::slug($request->title, '-'),
-            'short_description'   => $request->short_description,
-            'project_description' => $request->project_description,
             'description'         => $request->description,
-            // 'thumbnail'           => $request->thumbnail,
             'user_id'             => Auth::user()->id,
             'meta_title'          => $request->meta_title,
             'meta_description'    => $request->meta_description,
@@ -157,7 +131,6 @@ class BlogController extends Controller
             $file_name = $request->file('thumbnail')->store('thumbnail/blog/');
             $data['thumbnail'] = $file_name;
         }
-
         $blog = Blog::firstWhere('id',$id)->update($data);
 
         if(!empty($request->category_ids)){
@@ -169,9 +142,6 @@ class BlogController extends Controller
                 ]);
              }
         }
-
-
-
         Session::flash('warning');
         return redirect()->route('blog.index')->with('warning',' Blog Successfully Updated');;
     }

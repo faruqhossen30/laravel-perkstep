@@ -14,8 +14,14 @@ return new class extends Migration
         Schema::create('services', function (Blueprint $table) {
             $table->id();
             $table->string('title');
+            $table->string('slug');
             $table->longText('description')->nullable();
             $table->string('thumbnail')->nullable();
+            $table->unsignedBigInteger('user_id');
+            $table->string('meta_title')->nullable();
+            $table->string('meta_description')->nullable();
+            $table->string('meta_keyword',1000)->nullable();
+            $table->boolean('status')->nullable()->default(0);
             $table->timestamps();
         });
     }

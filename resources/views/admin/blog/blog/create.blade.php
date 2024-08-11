@@ -22,36 +22,34 @@
                         <div class="grid grid-cols-12 gap-5 ">
                             <div class="col-span-12 lg:col-span-8 bg-white dark:bg-gray-800 p-4 rounded-lg">
                                 <x-form.input label="Title" name="title" />
-                                <div class="py-2">
-                                    <x-form.textarea label="Short Description" name="short_description" />
-                                    @error('short_description')
+                                <div>
+                                    <textarea name="description" id="myeditorinstance" cols="30" rows="10"></textarea>
+                                    @error('description')
                                         <p class="text-sm text-red-600 mt-2">{{ $message }}</p>
                                     @enderror
                                 </div>
-                                <x-form.select-status />
-                                <textarea name="description" id="myeditorinstance" cols="30" rows="10"></textarea>
-                                @error('description')
-                                    <p class="text-sm text-red-600 mt-2">{{ $message }}</p>
-                                @enderror
-                                <x-divider title="SEO Section" />
+                                <div class="py-4">
+                                    <label for="category_ids" class="text-gray-500 dark:text-gray-200 text-sm font-medium">Select
+                                        Category</label>
+                                    <select id="category_ids" name="category_ids[]"
+                                        class="js-example-basic-multiple py-3 px-4 pe-9 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"
+                                        multiple="multiple">
+                                        <option>Select Categories</option>
+                                        @foreach ($categories as $cat)
+                                            <option value="{{ $cat->id }}">{{ $cat->name }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-span-12 lg:col-span-4 bg-white dark:bg-gray-800 p-4 rounded-lg">
+                                <label for="thumbnail"class="text-gray-500 dark:text-gray-500 text-sm font-medium">Image</label>
+                                <input class="dropify" type="file" id="myDropify" name="thumbnail">
                                 <x-form.input label="Meta Title" name="meta_title" />
                                 <x-form.textarea label="Meta Description" name="meta_description" />
                                 <x-form.input label="Meta Keyword" name="meta_keyword" />
-                            </div>
-                            <div class="col-span-12 lg:col-span-4 bg-white dark:bg-gray-800 p-4 rounded-lg">
-                                <input class="dropify" type="file" id="myDropify" name="thumbnail">
-                                <x-form.textarea label="Project Description" name="project_description" />
-                                <label for="category_ids" class="block text-sm font-medium mb-2 dark:text-white">Select
-                                    Service</label>
-                                <select id="category_ids" name="category_ids[]"
-                                    class="js-example-basic-multiple py-3 px-4 pe-9 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"
-                                    multiple="multiple">
-                                    <option>Select Categories</option>
-                                    @foreach ($categories as $cat)
-                                        <option value="{{ $cat->id }}">{{ $cat->name }}</option>
-                                    @endforeach
-                                </select>
-                                <x-form.select :data="$categories"lable="category" name="category_id" />
+
+
+                                <x-form.select-status />
                             </div>
                         </div>
                         <x-form.submit-button />
@@ -68,6 +66,7 @@
         .dropify-message p {
             font-size: 24px
         }
+
         .tox .tox-promotion-link {
             visibility: hidden;
         }
@@ -79,7 +78,7 @@
     <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <script src="{{ asset('js/dropify.min.js') }}"></script>
-    <script src="{{asset('tinymce/js/tinymce/tinymce.min.js')}}"></script>
+    <script src="{{ asset('tinymce/js/tinymce/tinymce.min.js') }}"></script>
     <script>
         tinymce.init({
             license_key: 'gpl',
@@ -90,7 +89,7 @@
             file_picker_types: 'image',
             image_uploadtab: true,
 
-            paste_data_images:false,
+            paste_data_images: false,
             images_upload_url: '{{ route('editorimagestore') . '?_token=' . csrf_token() }}',
             automatic_uploads: true,
         });

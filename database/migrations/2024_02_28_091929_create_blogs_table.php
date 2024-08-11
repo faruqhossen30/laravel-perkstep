@@ -15,8 +15,6 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('slug');
-            $table->string('short_description',1000)->nullable();
-            $table->string('project_description',1000)->nullable();
             $table->longText('description');
             $table->string('thumbnail')->nullable();
             $table->unsignedBigInteger('user_id');

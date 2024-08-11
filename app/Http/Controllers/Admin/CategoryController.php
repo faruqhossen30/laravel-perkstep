@@ -44,9 +44,6 @@ class CategoryController extends Controller
         $request->validate([
             'name'=>'required'
         ]);
-
-
-
         $data=[
             'name'      => $request->name,
             'slug'      => Str ::slug($request->name),

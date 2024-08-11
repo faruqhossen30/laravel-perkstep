@@ -3,8 +3,12 @@
 namespace App\Http\Controllers\Admin\Service;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use App\Models\Service;
+use Illuminate\Support\Str;
+use App\Models\ServiceCategory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
 class ServiceController extends Controller
@@ -23,7 +27,8 @@ class ServiceController extends Controller
      */
     public function create()
     {
-        return view('admin.service.create');
+        $categories = Category::get();
+        return view('admin.service.create',compact('categories'));
     }
 
     /**
@@ -35,17 +40,30 @@ class ServiceController extends Controller
             'title'       => 'required',
             'description' => 'required'
         ]);
-
         $data = [
-            'title'       => $request->title,
-            'description' => $request->description,
+            'title'            => $request->title,
+            'slug'             => Str::slug($request->title, '-'),
+            'description'      => $request->description,
+            'user_id'          => Auth::user()->id,
+            'meta_title'       => $request->meta_title,
+            'meta_description' => $request->meta_description,
+            'meta_keyword'     => $request->meta_keyword,
+            'status'           => $request->status
         ];
 
         if($request->file('thumbnail')){
             $file_name = $request->file('thumbnail')->store('thumbnail/service/');
             $data['thumbnail'] = $file_name;
         }
-        Service::create($data);
+        $service=Service::create($data);
+        if(!empty($request->category_ids)){
+            foreach($request->category_ids as $id){
+               ServiceCategory::create([
+                   'service_id'=>$service->id,
+                   'category_id'=>$id
+               ]);
+            }
+       }
         Session::flash('create');
         return redirect()->route('service.index')->with('create', ' Service Successfully Created');
     }
@@ -63,9 +81,16 @@ class ServiceController extends Controller
      */
     public function edit(string $id)
     {
+
+
+        // $blog = Blog::with('categories')->firstWhere('id', $id);
+        // $categories = Category::get();
+        // $cat_ids = $blog->categories->pluck('id')->toArray();
+
         $service = Service::where('id', $id)->first();
-        // return $package;
-        return view('admin.service.edit', compact('service'));
+        $categories = Category::get();
+        $cat_ids = $service->categories->pluck('id')->toArray();
+        return view('admin.service.edit', compact('service','cat_ids','categories'));
     }
 
     /**
@@ -74,9 +99,30 @@ class ServiceController extends Controller
     public function update(Request $request, string $id)
     {
         $data = [
-            'question' => $request->question,
-            'answer'   => $request->answer,
+            'title'            => $request->title,
+            'slug'              => Str::slug($request->title, '-'),
+            'description'      => $request->description,
+            'user_id'          => Auth::user()->id,
+            'meta_title'       => $request->meta_title,
+            'meta_description' => $request->meta_description,
+            'meta_keyword'     => $request->meta_keyword,
+            'status'           => $request->status
         ];
+
+        if($request->file('thumbnail')){
+            $file_name = $request->file('thumbnail')->store('thumbnail/portfolio/');
+            $data['thumbnail'] = $file_name;
+        }
+
+        if(!empty($request->category_ids)){
+            ServiceCategory::where('service_id', $id)->delete();
+             foreach($request->category_ids as $cat){
+                ServiceCategory::create([
+                    'service_id'  => $id,
+                    'category_id' => $cat
+                ]);
+             }
+        }
         Service::firstwhere('id', $id)->update($data);
         Session::flash('warning');
         return redirect()->route('service.index')->with('warning', ' Service Successfully Updated');
