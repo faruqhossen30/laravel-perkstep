@@ -6,7 +6,7 @@ use App\Models\Category;
 use App\Models\Service;
 use Illuminate\Http\Request;
 
-class Servicepagecontroller extends Controller
+class ServicepageController extends Controller
 {
     public function servicePage()
     {
