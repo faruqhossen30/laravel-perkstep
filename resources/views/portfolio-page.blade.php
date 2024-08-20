@@ -22,7 +22,7 @@
                             Category</label>
                         <select name="category_id" onchange="this.form.submit()"
                             class="py-1 px-2 block border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none">
-                            <option>Select Categories</option>
+                            <option>Select </option>
                             @foreach ($categories as $cat)
                                 <option value="{{ $cat->id }}" @if (isset($_GET['category_id']) && $_GET['category_id'] == $cat->id) selected @endif>
                                     {{ $cat->name }}</option>
