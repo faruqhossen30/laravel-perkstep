@@ -10,7 +10,7 @@
             online visibility, attract more customers, and drive business growth.</p>
 
 
-        <div class="flex justify-center pt-2 pb-72">
+        <div class="flex justify-center pt-2 pb-24">
             <a class=" inline-flex justify-center items-center  bg-[#01C778] text-white rounded-full py-3  space-x-2 px-4" href="#">
                 <span>Get Started Now</span>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-4">
@@ -22,17 +22,3 @@
 </section>
 
 
-<section>
-    <div class="container mx-auto relative">
-        <div class="flex justify-center -mt-48 ">
-            <img src="{{ asset('img/Rectangle 5.png') }}" width="900px" height="646px" srcset="">
-        </div>
-        <div class=" flex  -mt-80  justify-end absolute">
-
-            <img src="{{ asset('img/Group 111.png') }}" width="300px" height="200px" srcset="">
-            <img src="{{ asset('img/Group 111.png') }}" width="300px"class="" height="200px" srcset="">
-        </div>
-
-        <p class="text-center text-[#01C778] font-semibold py-8">Worked with 100+ clients around the world including</p>
-    </div>
-</section>

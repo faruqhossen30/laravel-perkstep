@@ -11,6 +11,7 @@ use App\Http\Controllers\ConditionController;
 use App\Http\Controllers\ContuctController;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\HomepageController;
+use App\Http\Controllers\MeetingController;
 use App\Http\Controllers\PortfoliopageController;
 use App\Http\Controllers\PricepageController;
 use App\Http\Controllers\ProfileController;
@@ -49,6 +50,7 @@ Route::get('service/{slug}',[ServicepageController::class,'singleServicePage'])-
 Route::get('portfolios',[PortfoliopageController::class,'portfolioPage'])->name('portfolio.page');
 Route::get('portfolio/{slug}',[PortfoliopageController::class,'singlePortfolio'])->name('portfolio.single');
 Route::get('aboutus',[AboutpageController::class,'aboutPage'])->name('about.page');
+Route::get('meeting',[MeetingController::class,'MeetingPage'])->name('meeting.page');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

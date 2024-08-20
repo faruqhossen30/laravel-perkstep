@@ -34,10 +34,10 @@ class ReviewController extends Controller
     {
 
         $request->validate([
-            'name'        => 'required',
-            'designation' => 'required',
-            'review'      => 'required',
-            'rating'      => 'required',
+            // 'name'        => 'required',
+            // 'designation' => 'required',
+            // 'review'      => 'required',
+            // 'rating'      => 'required',
         ]);
 
         $data = [
@@ -46,6 +46,7 @@ class ReviewController extends Controller
             'review'      => $request->review,
             'rating'      => $request->rating,
             'date'        => $request->date,
+
         ];
 
         if($request->file('thumbnail')){

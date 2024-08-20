@@ -15,7 +15,7 @@
                                 <x-form.input label="Name" name="name" value="{{ $review->name }}" />
                                 <x-form.input label="Designation" name="designation" value="{{ $review->designation }}" />
                                 <div class="py-2">
-                                    <textarea name="description" id="myeditorinstance" cols="30" rows="10"></textarea>
+                                    <textarea name="review" id="myeditorinstance" cols="30" rows="10"></textarea>
                                     @error('description')
                                         <p class="text-sm text-red-600 mt-2">{{ $message }}</p>
                                     @enderror
