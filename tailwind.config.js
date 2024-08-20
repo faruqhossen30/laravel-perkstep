@@ -12,10 +12,13 @@ export default {
     ],
 
     theme: {
+
         container: {
-            screens: {
-                '2xl': '1280px'
-            }
+            center: true,
+            padding: {
+                DEFAULT: '1rem',
+              },
+
         },
         extend: {
             typography: {

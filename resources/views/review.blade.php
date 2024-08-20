@@ -10,8 +10,6 @@
             <h6 class="text-center uppercase font-bold text-[#01C778]">Clients review</h6>
             <h2 class="text-center text-5xl font-bold">Read Our Respectable <br> Client Reviews </h2>
             <div id="clientreview" class="owl-carousel owl-theme grid grid-cols-12 gap-6 ">
-
-
                 @foreach ($reviews as $review)
                     <div class="col-span-4  group ">
                         <div class=" text-center ">
