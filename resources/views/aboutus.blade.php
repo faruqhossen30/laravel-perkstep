@@ -14,7 +14,7 @@
                 <div class="py-6">
                     <div class="space-y-6">
                         <h5 class=" uppercase text-[#01C778] text-sm font-semibold">About US</h5>
-                        <h2 class="text-[44px] font-bold">Feel Your Success with Our homecare SEO Company in London</h2>
+                        <h2 class="text-[44px] font-bold py-6">Feel Your Success with Our homecare SEO Company in London</h2>
                         <p class="text-base font-normal ">Multiple factors contribute to successful online search results. PerkStep ensures your homecare agency ranks prominently
                             in local listings and map searches,
                             making it easier to find you on Google and Bing.</p>

@@ -1,5 +1,7 @@
 @extends('layouts.app')
-
+@section('title')
+    Perkstep | Services
+@endsection
 @section('content')
     <section class="bg-gray-50">
         <!-- Card Blog -->

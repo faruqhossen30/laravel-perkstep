@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('title')
+Perkstep | Home
+@endsection
+
 @section('content')
     <!----------hero section start------->
     @include('herosection')
@@ -76,8 +80,8 @@
             $('#servicesslider').owlCarousel({
                 loop: true,
                 margin: 10,
-                nav: true,
-                dots: true,
+                nav: false,
+                dots: false,
                 responsive: {
                     0: {
                         items: 1

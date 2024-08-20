@@ -3,12 +3,12 @@
         <div class="grid grid-cols-12 py-24 gap-28">
             <div class="col-span-6">
                 <div class=" space-y-6">
-                    <h6 class=" uppercase text-[#01C778] font-bold">Why Chose US</h6>
+                    {{-- <h6 class=" uppercase text-[#01C778] font-bold">Why Chose US</h6> --}}
                     <h3 class="text-5xl text-white font-bold">#No1 Home care SEO agency in London.</h3>
-                    <p class="text-base font-normal text-white">At PerkStep, we specialize in SEO, local SEO, PPC, digital PR, link building, and social media marketing
+                    <p class="text-lg font-normal text-white">At PerkStep, we specialize in SEO, local SEO, PPC, digital PR, link building, and social media marketing
                         exclusively for the homecare industry. Our relentless focus on keywords, content, PR, outreach, and ever-evolving algorithms ensures success for our
                         clients’ businesses.</p>
-                    <p class="text-base font-normal text-white">Our talented London-based team brings enthusiasm and deep SEO expertise to the table. We’re committed to continuous
+                    <p class="text-lg font-normal text-white">Our talented London-based team brings enthusiasm and deep SEO expertise to the table. We’re committed to continuous
                         learning, allowing us to implement the latest strategies for our clients. We adhere to global standards across organic and paid marketing initiatives.
                         PerkStep prioritizes client ROI and delivers tangible</p>
 

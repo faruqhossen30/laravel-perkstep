@@ -8,11 +8,11 @@
             </div>
             <div class="col-span-6 py-10">
                 <div class=" space-y-6">
-                    <h6 class="uppercase text-[#01C778] font-bold">Our Mission</h6>
-                    <h1 class="text-5xl  font-bold">Feel Your Success with Our homecare SEO Company in London</h1>
-                    <p class="text-base font-normal font- leading-[26x]">Multiple factors contribute to successful online search results. PerkStep ensures your homecare agency
+                    {{-- <h6 class="uppercase text-[#01C778] font-bold">Our Mission</h6> --}}
+                    <h1 class="text-5xl  text-gray-800 font-bold">Feel Your Success with Our homecare SEO Company in London</h1>
+                    <p class="text-lg font-normal font- leading-[26x]">Multiple factors contribute to successful online search results. PerkStep ensures your homecare agency
                         ranks prominently in local listings and map searches, making it easier to find you on Google and Bing.</p>
-                    <p class="text-base font-normal leading-[26x]">Our London-based SEO team implements powerful strategies to keep you ahead of the local competition.
+                    <p class="text-lg font-normal leading-[26x]">Our London-based SEO team implements powerful strategies to keep you ahead of the local competition.
                         Furthermore, our comprehensive social media strategy fosters brand awareness and engagement, attracting potential clients and keeping your business
                         thriving.</p>
 

@@ -6,8 +6,8 @@
     <div class="container  mx-auto py-24">
         <div class=" space-y-6 py-10">
 
-            <h6 class="text-center uppercase text-[#01C778] font-bold ">Read FAQS</h6>
-            <h2 class=" text-center text-5xl  font-semibold">Our General Questions <br>Answers</h2>
+            {{-- <h6 class="text-center uppercase text-[#01C778] font-bold ">Read FAQS</h6> --}}
+            <h2 class=" text-center text-5xl text-gray-800  font-semibold">Our General Questions <br>Answers</h2>
         </div>
         <div class="grid grid-cols-12 gap-12">
             <div class="col-span-6 space-y-3">

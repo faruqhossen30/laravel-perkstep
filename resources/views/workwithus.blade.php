@@ -1,8 +1,8 @@
 <section>
     <div class="container mx-auto">
         <div class="py-24">
-            <h6 class="text-center uppercase text-sm text-[#01C778] font-bold">Work with us</h6>
-            <h2 class="text-center text-7xl  font-semibold leading-[79px]">Have a project in mind? <br>
+            {{-- <h6 class="text-center uppercase text-sm text-[#01C778] font-bold">Work with us</h6> --}}
+            <h2 class="text-center text-7xl text-gray-800  font-semibold leading-[79px]">Have a project in mind? <br>
                 Let’s get to work</h2>
 
             <div class="flex justify-center py-10">

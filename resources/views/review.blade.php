@@ -7,8 +7,8 @@
 <section>
     <div class="container mx-auto">
         <div class="py-24 space-y-6">
-            <h6 class="text-center uppercase font-bold text-[#01C778]">Clients review</h6>
-            <h2 class="text-center text-5xl font-bold">Read Our Respectable <br> Client Reviews </h2>
+            {{-- <h6 class="text-center uppercase font-bold text-[#01C778]">Clients review</h6> --}}
+            <h2 class="text-center text-5xl text-gray-800 font-bold">Read Our Respectable <br> Client Reviews </h2>
             <div id="clientreview" class="owl-carousel owl-theme grid grid-cols-12 gap-6 ">
                 @foreach ($reviews as $review)
                     <div class="col-span-4  group ">
@@ -37,10 +37,13 @@
                                     </svg>
                                 @endfor
                             </div>
-                            <p class=" font-normal text-base  leading-[26px]">{!! $review->review !!}</p>
+                            <div class="text-lg ">
+
+                                <p class=" font-normal  leading-[26px]">{!! $review->review !!}</p>
+                            </div>
 
                             <div class="py-6">
-                                <h4 class="text-[22px] font-bold">{{ $review->name }}</h4>
+                                <h4 class="text-[22px] text-gray-800 font-bold">{{ $review->name }}</h4>
                                 <h6 class=" text-sm">{{ $review->designation }}</h6>
                             </div>
                         </div>

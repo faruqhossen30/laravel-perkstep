@@ -5,8 +5,9 @@
 
 <section class="bg-gray-100">
     <div class="container mx-auto  p-6">
-        <p class="text-[#01C778] text-sm  font-semibold  text-center uppercase py-5">our services</p>
-        <h2 class="text-5xl font-semibold text-center">How SEO London Services <br> Can Work for you</h2>
+        {{-- <p class="text-[#01C778] text-sm  font-semibold  text-center uppercase py-5">our services</p> --}}
+        {{-- <p class="text-[#01C778] text-sm  font-semibold  text-center uppercase py-5"></p> --}}
+        <h2 class="text-5xl font-semibold text-center py-6">How SEO London Services  Can Work for you</h2>
         <div id="servicesslider" class="flex  owl-carousel owl-theme space-x-4 py-6">
             @foreach ($services as $service)
                 <div class="bg-gray-50 p-4 space-y-4 rounded-lg hover:bg-white group">
@@ -18,8 +19,8 @@
 
                     <h3 class="text-2xl font-semibold">{{ $service->title }}</h3>
 
-                    <div class="">
-                        <p> {!! $service->description !!}</p>
+                    <div class="text-xl">
+                        <p class=""> {!! $service->description !!}</p>
                     </div>
 
                     <a href="{{ route('service.page', $service->id) }}"

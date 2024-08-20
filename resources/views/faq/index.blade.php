@@ -1,7 +1,7 @@
 @extends('admin.layouts.app')
 @section('breadcrumb')
     <div class="flex justify-between items-center">
-        <x-breadcrumb pageone="faq" />
+        <x-breadcrumb pageone="FAQ" />
         <x-button.button-plus route="{{ route('faq.create') }}" title="Create faq" />
     </div>
 @endsection

@@ -5,8 +5,8 @@
 @endphp
 <section class="bg-gray-100 py-24">
     <div class="container mx-auto">
-        <h6 class="text-center uppercase text-[#01C778] font-bold">our blog</h6>
-        <h2 class="text-center text-5xl  font-semibold leading-[56px]">How SEO London Services <br> Can Work for you</h2>
+        {{-- <h6 class="text-center uppercase text-[#01C778] font-bold">our blog</h6> --}}
+        <h2 class="text-center text-5xl  text-gray-800 font-semibold leading-[56px]">How SEO London Services <br> Can Work for you</h2>
         <div id="ourservice" class="owl-carousel owl-theme grid grid-cols-12 gap-6 py-10">
             @foreach (  $blogs as   $blog)
             <div class="col-span-4">

@@ -1,5 +1,7 @@
 @extends('layouts.app')
-
+@section('title')
+    Perkstep | Portfolio
+@endsection
 @section('content')
     <section class="bg-gray-50">
 
