@@ -13,6 +13,7 @@ use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\EditorImageController;
 use App\Http\Controllers\Admin\Faq\FaqController;
 use App\Http\Controllers\Admin\PortfolioController;
+use App\Http\Controllers\Admin\PortfolioSectionController;
 use App\Http\Controllers\Admin\Review\ReviewController;
 use App\Http\Controllers\Admin\Service\ServiceController;
 use App\Http\Controllers\Admin\Setting\AboutmeSettingController;
@@ -40,6 +41,10 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::resource('client',      ClientController::class);
     Route::resource('user',        UserController::class);
     Route::resource('portfolio',   PortfolioController::class);
+
+
+    Route::get('portfolio-section/{id}',[PortfolioSectionController::class,'portfolioSectionCreate'])->name('portfolio.section.create');
+    Route::post('portfolio-section/{id}',[PortfolioSectionController::class,'portfolioSectionStore'])->name('portfolio.section.store');
 
     Route::get('profile/',[AdminProfileController::class,'adminProfile'])->name('admin.profile');
     Route::put('profile/update/{id}',[AdminProfileController::class,'UpdateAdminProfile'])->name('admin.profile.update');

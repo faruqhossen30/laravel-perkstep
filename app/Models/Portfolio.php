@@ -27,4 +27,9 @@ class Portfolio extends Model
         return $this->belongsToMany(Category::class, 'portfolio_categories');
     }
 
+    public function sections()
+    {
+        return $this->hasMany(PortfolioSection::class);
+    }
+
 }
