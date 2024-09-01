@@ -40,7 +40,7 @@ class PortfoliopageController extends Controller
 
     public function singlePortfolio($slug)
     {
-        $portfolio = Portfolio::firstWhere('slug', $slug);
+        $portfolio = Portfolio::with('sections')->firstWhere('slug', $slug);
         // return $portfolio;
         return view('single-portfolio', compact('portfolio'));
     }
