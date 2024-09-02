@@ -30,7 +30,7 @@ class PortfolioController extends Controller
     public function create()
     {
         $categories = Category::get();
-        return view('admin.portfolio.create',compact('categories'));
+        return view('admin.portfolio.create', compact('categories'));
     }
 
     /**
@@ -59,33 +59,30 @@ class PortfolioController extends Controller
             'status'              => $request->status
         ];
 
-        if($request->file('thumbnail')){
+        if ($request->file('thumbnail')) {
             $file_name = $request->file('thumbnail')->store('thumbnail/portfolio/');
             $data['thumbnail'] = $file_name;
         }
 
-      $portfolio = Portfolio::create($data);
+        $portfolio = Portfolio::create($data);
 
-        if(!empty($request->category_ids)){
-            foreach($request->category_ids as $id){
-               PortfolioCategory::create([
-                   'portfolio_id'=>$portfolio ->id,
-                   'category_id'=>$id
-               ]);
+        if (!empty($request->category_ids)) {
+            foreach ($request->category_ids as $id) {
+                PortfolioCategory::create([
+                    'portfolio_id' => $portfolio->id,
+                    'category_id' => $id
+                ]);
             }
-       }
+        }
 
         Session::flash('create');
-        return redirect()->route('portfolio.index')->with('create','Portfolio successfully created');
+        return redirect()->route('portfolio.index')->with('create', 'Portfolio successfully created');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
-    {
-
-    }
+    public function show(string $id) {}
 
     /**
      * Show the form for editing the specified resource.
@@ -102,7 +99,7 @@ class PortfolioController extends Controller
         $portfolio = Portfolio::with('categories')->firstWhere('id', $id);
         $categories = Category::get();
         $cat_ids = $portfolio->categories->pluck('id')->toArray();
-        return view('admin.portfolio.edit', compact('portfolio','categories','cat_ids'));
+        return view('admin.portfolio.edit', compact('portfolio', 'categories', 'cat_ids'));
     }
 
     /**
@@ -117,7 +114,7 @@ class PortfolioController extends Controller
             ]
         );
         $data = [
-           'title'                => $request->title,
+            'title'                => $request->title,
             'slug'                => Str::slug($request->title, '-'),
             'description'         => $request->description,
             'user_id'             => Auth::user()->id,
@@ -127,22 +124,22 @@ class PortfolioController extends Controller
             'status'              => $request->status
         ];
 
-        if($request->file('thumbnail')){
+        if ($request->file('thumbnail')) {
             $file_name = $request->file('thumbnail')->store('thumbnail/portfolio/');
             $data['thumbnail'] = $file_name;
         }
-        if(!empty($request->category_ids)){
+        if (!empty($request->category_ids)) {
             PortfolioCategory::where('portfolio_id', $id)->delete();
-             foreach($request->category_ids as $cat){
+            foreach ($request->category_ids as $cat) {
                 PortfolioCategory::create([
                     'portfolio_id' => $id,
                     'category_id'  => $cat
                 ]);
-             }
+            }
         }
-        Portfolio::firstWhere('id',$id)->update($data);
+        Portfolio::firstWhere('id', $id)->update($data);
         Session::flash('warning');
-        return redirect()->route('portfolio.index')->with('warning',' Blog Successfully Updated');;
+        return redirect()->route('portfolio.index')->with('warning', ' Blog Successfully Updated');;
     }
 
     /**
@@ -151,8 +148,8 @@ class PortfolioController extends Controller
     public function destroy(string $id)
     {
         $portfolio = Portfolio::findOrFail($id);
-        Storage::delete($portfolio->thumbnail);
+        // Storage::delete($portfolio->thumbnail);
         $portfolio->delete();
-        return redirect()->route('portfolio.index')->with('success','data successfully Deleted');
+        return redirect()->route('portfolio.index')->with('success', 'data successfully Deleted');
     }
 }

@@ -47,7 +47,7 @@ Route::get('blog/{slug}',[BlogpageController::class,'singleBlogPage'])->name('si
 Route::get('contact',[ContactController::class,'contactPage'])->name('contact.page');
 Route::get('services',[ServicepageController::class,'servicePage'])->name('service.page');
 Route::get('service/{slug}',[ServicepageController::class,'singleServicePage'])->name('single.service.page');
-Route::get('portfolios',[PortfoliopageController::class,'portfolioPage'])->name('portfolio.page');
+Route::get('portfolios',[PortfoliopageController::class,'index'])->name('portfolio.page');
 Route::get('portfolio/{slug}',[PortfoliopageController::class,'singlePortfolio'])->name('portfolio.single');
 Route::get('aboutus',[AboutpageController::class,'aboutPage'])->name('about.page');
 Route::get('meeting',[MeetingController::class,'MeetingPage'])->name('meeting.page');

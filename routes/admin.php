@@ -43,8 +43,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::resource('portfolio',   PortfolioController::class);
 
 
-    Route::get('portfolio-section/{id}',[PortfolioSectionController::class,'portfolioSectionCreate'])->name('portfolio.section.create');
-    Route::post('portfolio-section/{id}',[PortfolioSectionController::class,'portfolioSectionStore'])->name('portfolio.section.store');
+    // Route::get('portfolio-section/{id}',[PortfolioSectionController::class,'portfolioSectionCreate'])->name('portfolio.section.create');
+    // Route::post('portfolio-section/{id}',[PortfolioSectionController::class,'portfolioSectionStore'])->name('portfolio.section.store');
 
     Route::get('profile/',[AdminProfileController::class,'adminProfile'])->name('admin.profile');
     Route::put('profile/update/{id}',[AdminProfileController::class,'UpdateAdminProfile'])->name('admin.profile.update');

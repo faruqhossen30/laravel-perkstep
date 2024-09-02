@@ -8,6 +8,10 @@ use Illuminate\Http\Request;
 
 class PortfoliopageController extends Controller
 {
+    public function index(){
+        $portfolios = Portfolio::paginate();
+        return view('portfolio-page-new', compact('portfolios'));
+    }
     public function portfolioPage()
     {
         $per_page = null;
@@ -37,6 +41,8 @@ class PortfoliopageController extends Controller
         $categories = Category::get();
         return view('portfolio-page', compact('portfilios', 'categories'));
     }
+
+
 
     public function singlePortfolio($slug)
     {
