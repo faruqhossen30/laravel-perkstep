@@ -32,7 +32,7 @@ class BlogpageController extends Controller
         //     });
         // }
 
-        $blogs = Blog::when($orderby, function ($query, $orderby) {
+        $blogs = Blog::with('users')->when($orderby, function ($query, $orderby) {
             return $query->orderBy('id', $orderby);
         })
             ->when($category_id, function ($query, $category_id) {
@@ -50,6 +50,8 @@ class BlogpageController extends Controller
     public function singleBlogPage($slug)
     {
         $blog = Blog::firstWhere('slug', $slug);
+
+        // return $blog;
         return view('single-blog', compact('blog'));
     }
 }

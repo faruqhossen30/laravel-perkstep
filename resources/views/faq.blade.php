@@ -10,7 +10,7 @@
             <h2 class=" text-center text-5xl text-gray-800  font-semibold">Our General Questions <br>Answers</h2>
         </div>
         <div class="grid grid-cols-12 gap-12">
-            <div class="col-span-6 space-y-3">
+            <div class="col-span-6 sm:col-span-12 md:col-span-6 space-y-3">
                 <div id="accordion-collapse" data-accordion="collapse" data-active-classes=" bg-transparent"  class="space-y-4" >
                     @foreach ($faqs as $key => $faq)
                         <div class="bg-[#F2FBF8] border rounded-lg border-green-500 p-4 space-y-4">
@@ -31,7 +31,7 @@
                     @endforeach
                 </div>
             </div>
-            <div class="col-span-6">
+            <div class="col-span-6 hidden md:block lg:block xl:block 2xl-block">
                 <div class="">
                     <img src="{{ asset('img/faqimage.png') }}" alt="" srcset="">
                 </div>
@@ -39,3 +39,5 @@
         </div>
     </div>
 </section>
+
+

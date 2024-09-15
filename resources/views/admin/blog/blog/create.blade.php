@@ -40,13 +40,23 @@
                                         @endforeach
                                     </select>
                                 </div>
+
                             </div>
                             <div class="col-span-12 lg:col-span-4 bg-white dark:bg-gray-800 p-4 rounded-lg">
                                 <label for="thumbnail"class="text-gray-500 dark:text-gray-500 text-sm font-medium">Image</label>
                                 <input class="dropify" type="file" id="myDropify" name="thumbnail">
                                 <x-form.input label="Meta Title" name="meta_title" />
                                 <x-form.textarea label="Meta Description" name="meta_description" />
-                                <x-form.input label="Meta Keyword" name="meta_keyword" />
+
+                                <div class="py-4">
+                                    <label for="pictures_tag_input" class="text-gray-500 dark:text-gray-200 text-sm font-medium">
+                                        Meta keywords</label>
+                                    <select id="pictures_tag_input" name="meta_keywords[]"
+                                        class="js-example-basic-multiple py-3 px-4 pe-9 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"
+                                        multiple="multiple">
+                                    </select>
+                                </div>
+
 
 
                                 <x-form.select-status />
@@ -71,6 +81,7 @@
             visibility: hidden;
         }
     </style>
+     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 @endpush
 
@@ -107,4 +118,69 @@
             $('.js-example-basic-multiple').select2();
         });
     </script>
+
+<script>
+$(document).ready(function() {
+    // solution 1
+    $("#pictures_tag_input").select2({
+      tags: true,
+      multiple: true,
+      placeholder: "Please type keywords here",
+      maximumSelectionSize: 12,
+      minimumInputLength: 2,
+      tokenSeparators: [",", " "],
+      createTag: function(params) {
+        // empty string is not allow
+        var term = $.trim(params.term).replace(/\s/g, "");
+        if (term === "") {
+          return null;
+        }
+
+        // duplicate check
+        var selectedTags = $("#pictures_tag_input").val() || [];
+        if (selectedTags.indexOf(term) > -1) {
+          return null;
+        }
+
+        return {
+          id: term,
+          text: term,
+          newTag: true // add additional parameters
+        };
+      },
+      templateResult: function(params) {
+        return params.name || params.text;
+      },
+      templateSelection: function(params) {
+        return params.name || params.text;
+      },
+      escapeMarkup: function(markup) {
+        return markup;
+      },
+      ajax: {
+        url: "https://api.myjson.com/bins/444cr",
+        dataType: "json",
+        global: false,
+        cache: true,
+        delay: 0,
+        data: function(params) {
+          return {
+            q: params.term
+          };
+        },
+        processResults: function(results, params) {
+          // remove existing tag after key press
+          var term = $.trim(params.term).replace(/\s/g, "");
+          var searchedTags = $.map(results, function(tag) {
+            if (tag.text.match(term) || term === "")
+              return { id: tag.id, text: tag.text };
+          });
+          return {
+            results: searchedTags
+          };
+        } //end of process results
+      } // end of ajax
+    });
+  });
+</script>
 @endpush

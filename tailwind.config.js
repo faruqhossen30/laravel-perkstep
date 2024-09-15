@@ -30,6 +30,7 @@ export default {
             },
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
+                manrope: ["Manrope","sans-serif"],
             },
             colors: {
                 'brand': '#FF003A',

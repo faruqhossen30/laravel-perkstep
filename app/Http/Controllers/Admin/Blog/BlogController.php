@@ -43,6 +43,8 @@ class BlogController extends Controller
      */
     public function store(Request $request)
     {
+
+        // return $request->all();
         $request->validate(
             [
                 'title'               => 'required',
@@ -58,8 +60,8 @@ class BlogController extends Controller
             'user_id'             => Auth::user()->id,
             'meta_title'          => $request->meta_title,
             'meta_description'    => $request->meta_description,
-            'meta_keyword'        => $request->meta_keyword,
-            'status'              => $request->status
+            'meta_keyword'        => json_encode($request->meta_keywords),
+            'status'              => $request->status,
         ];
         if($request->file('thumbnail')){
             $file_name = $request->file('thumbnail')->store('thumbnail/blog/');

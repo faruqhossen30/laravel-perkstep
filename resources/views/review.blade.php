@@ -11,11 +11,11 @@
             <h2 class="text-center text-5xl text-gray-800 font-bold">Read Our Respectable <br> Client Reviews </h2>
             <div id="clientreview" class="owl-carousel owl-theme grid grid-cols-12 gap-6 ">
                 @foreach ($reviews as $review)
-                    <div class="col-span-4  group ">
+                    <div class="col-span-4 sm:col-span-12 group ">
                         <div class=" text-center ">
 
                             <img src="{{ asset('storage/' . $review->thumbnail) }}"
-                                class=" max-w-20 min-h-20 max-h-20  rounded-full" alt="">
+                                class=" max-w-20 min-h-20 max-h-20  rounded-full " alt="">
 
                             <div
                                 class=" mt-2 mx-5 text-center w-0 h-0 border-[25px]  border-transparent  group-hover:border-b-[#01C778] border-b-[#F8F8F8] border-t-0 ">
@@ -23,10 +23,11 @@
                         </div>
                         <div class="group bg-[#F8F8F8] p-6 rounded group-hover:bg-[#01C778] group-hover:text-white">
 
-                            <div class="flex group-hover:text-white filter-white ">
-                                <img src="{{ asset('img/Vectorcoma.png') }}" class="text-white max-w-6" srcset="">
-                                <img src="{{ asset('img/Vectorcoma.png') }}" class="text-white max-w-6" srcset="">
+                            <div class="flex group">
+                                <img src="{{ asset('img/Vectorcoma.png') }}" class="max-w-6 transition  group-hover:invert group-hover:brightness-0" alt="">
+                                <img src="{{ asset('img/Vectorcoma.png') }}" class="max-w-6 transition  group-hover:invert group-hover:brightness-0" alt="">
                             </div>
+
                             <div class="flex text-yellow-400 py-6">
                                 @for ($i = 1; $i <= $review->rating; $i++)
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
@@ -39,12 +40,12 @@
                             </div>
                             <div class="text-lg ">
 
-                                <p class=" font-normal  leading-[26px]">{!! $review->review !!}</p>
+                                <p class=" font-normal font-manrope  leading-[26px]">{!! $review->review !!}</p>
                             </div>
 
                             <div class="py-6">
-                                <h4 class="text-[22px] text-gray-800 font-bold">{{ $review->name }}</h4>
-                                <h6 class=" text-sm">{{ $review->designation }}</h6>
+                                <h4 class="text-[22px] text-[#102830] group-hover:text-white font-bold font-manrope">{{ $review->name }}</h4>
+                                <h6 class=" text-sm font-manrope ">{{ $review->designation }}</h6>
                             </div>
                         </div>
                     </div>

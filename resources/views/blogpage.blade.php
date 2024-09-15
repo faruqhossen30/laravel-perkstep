@@ -18,7 +18,7 @@
                     @endforeach
                 </select>
             </div>
-            <div class=" flex space-x-2  ">
+            {{-- <div class=" flex space-x-2  ">
                 <div class="flex items-center space-x-1">
                     <label for="">Order:</label>
                     <select name="per_page" onchange="this.form.submit()"
@@ -38,19 +38,21 @@
                         <option value="desc">Oldest</option>
                     </select>
                 </div>
-            </div>
+            </div> --}}
         </div>
         <div id="ourservice" class="owl-carousel owl-theme grid grid-cols-12 gap-3 pb-10">
             @foreach ($blogs as   $blog)
             <div class="col-span-4" >
+
+                <a href="{{route('single.blog.page',$blog->slug)}}">
                 <div class="bg-white hover:bg-[#01C778] p-6 border rounded-lg space-y-6 group  h-[450px]">
                     <div class="">
-                        <img src="{{ asset('storage/'.$blog->thumbnail) }}" class="max-h-48 min-h-48  max-w-[360px] min-w-[360px]"  alt="" srcset="">
+                        <img src="{{ asset('storage/'.$blog->thumbnail) }}" class="max-h-48 min-h-48 w-full"  alt="" srcset="">
                     </div>
                     <div class="">
                         <ul class="flex items-center space-y-1 text-gray-800 list-disc list-inside  space-x-3">
 
-                            <p class="text-[17.5px] font-medium  group-hover:text-white">{{$blog->user_id}}</p>
+                            <p class="text-[17.5px] font-medium  group-hover:text-white">{{$blog->users->name}}</p>
                             <li class="text-[17px] group-hover:text-white">
                             @php
                                $timeAgo = $blog->created_at->diffForHumans();
@@ -72,6 +74,8 @@
                         </a>
                     </div>
                 </div>
+
+            </a>
             </div>
             @endforeach
         </div>
