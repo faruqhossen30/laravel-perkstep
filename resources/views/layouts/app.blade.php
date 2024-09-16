@@ -7,7 +7,7 @@
     <meta name="description" content="Multi Award Winning United Kingdom Designer">
     <meta name="author" content="Faruq Hossen">
     <meta name="generator" content="MonodeepSamanta 2.0">
-    <link rel="icon" type="image/x-icon" href="{{ asset('MonodeepSamanta.png') }}">
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.png') }}">
 
     <title> @yield('title', '')</title>
 
