@@ -4,7 +4,7 @@
             <p class="border border-dashed border-green-500 border-bold  rounded-full p-3 text-white   font-light px-8 font-manrope">👋 Hey there! Were Perkstep</p>
 
         </div>
-        <h1 class="text-center text-white  sm:text-4xl md:text-5xl md:px-18 lg:text-6xl xl:text-7xl 2xl:7xl font-bold font-manrope "><span class="text-[#01C778] ">Home Care SEO</span> - More Traffic, <br> More Leads & More Sales</h1>
+        <h1 class="text-center text-white text-7xl  sm:text-4xl md:text-5xl md:px-18 lg:text-6xl xl:text-7xl 2xl:7xl font-bold font-manrope "><span class="text-[#01C778] ">Home Care SEO</span> - More Traffic, <br> More Leads & More Sales</h1>
 
         <p class="text-center text-white font-manrope sm:text-sm md:text-lg lg:text-xl xl:text-xl sm:px-24 md:px-24 lg:px-32 xl:px-64 py-6 ">We are best health  homecare SEO agency in London and specializes in solving health and home care SEO challenges to  boost your
             online visibility, attract more customers, and drive business growth.</p>
