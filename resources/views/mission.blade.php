@@ -1,15 +1,15 @@
 <section class="bg-gray-100 rounded-lg">
-    <div class="container mx-auto py-24">
+    <div class="container mx-auto sm:py-12 md:py-6 lg:px-12  2xl:px-24">
         <div class="grid grid-cols-12">
-            <div class="col-span-6 hidden md:block lg:block xl:block 2xl:block">
+            <div class="col-span-6 hidden lg:block  xl:block 2xl:block">
                 <div class="">
                     <img src="{{ asset('img/our mission.png') }}" alt="">
                 </div>
             </div>
-            <div class="col-span-6 py-10 sm:col-span-12 md:col-span-6 lg:col-span-6">
+            <div class="col-span-12 py-10 sm:col-span-12 md:col-span-12 lg:col-span-6">
                 <div class=" space-y-6 px-4">
                     {{-- <h6 class="uppercase text-[#01C778] font-bold">Our Mission</h6> --}}
-                    <h1 class="text-5xl  text-gray-800 font-bold">Feel Your Success with Our homecare SEO Company in London</h1>
+                    <h1 class="text-3xl sm:text-3xl md:text-4xl md:text-center md:px-12 lg:text-left lg:px-0 lg:text-5xl  text-gray-800 font-bold">Feel Your Success with Our homecare SEO Company in London</h1>
                     <p class="text-lg font-normal font- leading-[26x]">Multiple factors contribute to successful online search results. PerkStep ensures your homecare agency
                         ranks prominently in local listings and map searches, making it easier to find you on Google and Bing.</p>
                     <p class="text-lg font-normal leading-[26x]">Our London-based SEO team implements powerful strategies to keep you ahead of the local competition.

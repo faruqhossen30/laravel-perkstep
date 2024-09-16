@@ -6,16 +6,16 @@
 
 <section>
     <div class="container mx-auto">
-        <div class="py-24 space-y-6">
+        <div class="py-24 space-y-6 sm:px-6 md:px-2 lg:px-8 xl:px-20 2xl:px-20">
             {{-- <h6 class="text-center uppercase font-bold text-[#01C778]">Clients review</h6> --}}
-            <h2 class="text-center text-5xl text-gray-800 font-bold">Read Our Respectable <br> Client Reviews </h2>
+            <h2 class="text-center text-3xl sm:text-4xl 2xl:text-5xl text-gray-800 font-bold py-6">Read Our Respectable <br> Client Reviews </h2>
             <div id="clientreview" class="owl-carousel owl-theme grid grid-cols-12 gap-6 ">
                 @foreach ($reviews as $review)
                     <div class="col-span-4 sm:col-span-12 group ">
                         <div class=" text-center ">
 
                             <img src="{{ asset('storage/' . $review->thumbnail) }}"
-                                class=" max-w-20 min-h-20 max-h-20  rounded-full " alt="">
+                                class=" sm:max-w-20 sm:max-h-20 max-h-20 max-w-20 pl-5   rounded-full " alt="">
 
                             <div
                                 class=" mt-2 mx-5 text-center w-0 h-0 border-[25px]  border-transparent  group-hover:border-b-[#01C778] border-b-[#F8F8F8] border-t-0 ">
@@ -53,9 +53,11 @@
 
             </div>
         </div>
-
     </div>
 </section>
+
+
+
 
 
 {{-- @push('styles')

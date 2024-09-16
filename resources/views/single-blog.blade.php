@@ -51,13 +51,23 @@
 
                                 {{-- {{json_decode($blog->meta_keyword)}} --}}
 
-                                @foreach (json_decode($blog->meta_keyword) as $keyword)
+                                {{--
+                                @foreach (json_decode($blog->meta_keyword) ?? [] as $keyword)
                                     <span
                                         class="px-2 py-1 text-black border  rounded text-11 group-data-[theme-color=violet]:bg-violet-500 group-data-[theme-color=sky]:bg-sky-500 group-data-[theme-color=red]:bg-red-500 group-data-[theme-color=green]:bg-green-500 group-data-[theme-color=pink]:bg-pink-500 group-data-[theme-color=blue]:bg-blue-500">{{ $keyword }}</span>
-                                @endforeach
+                                @endforeach --}}
 
 
-
+                                @if (!empty($blog->meta_keyword))
+                                    @foreach (json_decode($blog->meta_keyword) ?? [] as $keyword)
+                                        <span
+                                            class="px-2 py-1 text-black border rounded text-11 group-data-[theme-color=violet]:bg-violet-500 group-data-[theme-color=sky]:bg-sky-500 group-data-[theme-color=red]:bg-red-500 group-data-[theme-color=green]:bg-green-500 group-data-[theme-color=pink]:bg-pink-500 group-data-[theme-color=blue]:bg-blue-500">
+                                            {{ $keyword }}
+                                        </span>
+                                    @endforeach
+                                @else
+                                    <p>No keywords found.</p>
+                                @endif
 
                             </div>
 

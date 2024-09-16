@@ -4,9 +4,9 @@
 @endphp
 
 <section class="bg-gray-100">
-    <div class="container mx-auto  p-6">
+    <div class="container mx-auto ">
 
-        <h2 class="text-5xl sm:text-4xl sm:px-12 font-semibold text-center font-manrope  leading-4 py-6">How SEO London Services Can Work for you</h2>
+        <h2 class="text-3xl sm:text-4xl sm:px-12 md:px-28 2xl:text-5xl 2xl:font-bold font-bold text-black text-center font-manrope  leading-8  lg:py-16 py-6">How SEO London Services Can Work for you</h2>
 
         {{-- <div id="servicesslider" class="flex  owl-carousel owl-theme space-x-4 py-6">
                 <div class="grid grid-cols-12">
@@ -43,15 +43,15 @@
             </div>
         </div> --}}
 
-        <div id="servicesslider"  class=" owl-carousel owl-theme grid grid-cols-12 gap-6">
+        <div id="servicesslider"  class=" owl-carousel owl-theme grid grid-cols-12 sm:px-6 md:px-0 lg:px-6 xl:px-20 lg:gap-6">
             @foreach ($services as $service)
-            <div  class="  sm:col-span-12 md:col-span-6  py-10">
+            <div  class="  sm:col-span-12 md:col-span-6   py-10">
 
                 <div class="bg-white space-y-4 rounded-xl  py-12 px-6 shadow-xl">
 
                     <div class="">
-                        <div class=" bg-[#01C77814] hover:bg-[#01C778] p-2   inline-flex items-center justify-center rounded-full">
-                            <img src="{{ asset('storage/' . $service->thumbnail) }}" class="h-16 w-16" alt="" srcset="">
+                        <div class=" bg-[#01C77814] hover:bg-[#01C778]   inline-flex items-center justify-center rounded-full">
+                            <img src="{{ asset('storage/' . $service->thumbnail) }}" class="h-20 w-20 p-1" alt="" srcset="">
                         </div>
                     </div>
 
