@@ -3,39 +3,54 @@
     $faqs = Faq::all();
 @endphp
 <section>
-    <div class="container  mx-auto py-6 space-y-3 lg:py-24 lg:px-12 xl:px-24 2xl:px-24">
-        <div class=" space-y-6 lg:py-10">
-            <h2 class=" text-center text-2xl sm:text-3xl md:text-4xl 2xl:text-5xl font-bold text-gray-800">Our General Questions <br>Answers</h2>
+    <div class="container mx-auto py-6 space-y-3 lg:py-24 lg:px-12 xl:px-24 2xl:px-24">
+        <div class="space-y-6 lg:py-10">
+            <h2 class="text-center text-2xl sm:text-3xl md:text-4xl 2xl:text-5xl font-bold text-gray-800">
+                Our General Questions & Answers
+            </h2>
         </div>
         <div class="grid grid-cols-12 lg:gap-12">
-            <div class="col-span-12 sm:col-span-12 md:col-span-12 lg:col-span-6 space-y-3">
-                <div id="accordion-collapse" data-accordion="collapse" data-active-classes=" bg-transparent"  class="space-y-4" >
-                    @foreach ($faqs as $key => $faq)
-                        <div class="bg-[#F2FBF8] border rounded-lg border-green-500 p-4 space-y-4">
-                            <h6 id="accordion-collapse-heading-{{ $faq->id }}" >
-                                <button type="button" class="flex justify-between text-[20px] font-bold w-full"
-                                    data-accordion-target="#accordion-collapse-body-{{ $faq->id }}" aria-expanded="true"
-                                    aria-controls="accordion-collapse-body-{{ $faq->id }}">
-                                    <span>{{ $faq->question }}</span>
-                                    <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                                        viewBox="0 0 10 6">
-                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5" />
-                                    </svg>
-                                </button>
-                            </h6>
-                            <p id="accordion-collapse-body-{{ $faq->id }}" class="@if ($key != 2) hidden  @endif"
-                                aria-labelledby="accordion-collapse-heading-{{ $faq->id }}">{{ $faq->answer }}</p>
+            <div class="col-span-12 lg:col-span-6">
+                <div class="hs-accordion-group space-y-3">
+                    @foreach ($faqs as $key=>$faq)
+                        <div class="hs-accordion bg-[#F2FBF8] border-green-500 border rounded-xl"
+                            id="hs-active-bordered-heading-{{ $faq->id }}">
+                            <button
+                                class="hs-accordion-toggle inline-flex justify-between items-center gap-x-3 w-full font-bold text-start text-gray-800 text-[20px] py-4 px-5 hover:text-gray-500 disabled:opacity-50 disabled:pointer-events-none"
+                                aria-expanded="false" aria-controls="hs-basic-active-bordered-collapse-{{ $faq->id }}">
+                                {{ $faq->question }}
+                                <svg class="hs-accordion-active:hidden block size-3.5"
+                                    xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M5 12h14"></path>
+                                    <path d="M12 5v14"></path>
+                                </svg>
+                                <svg class="hs-accordion-active:block hidden size-3.5"
+                                    xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M5 12h14"></path>
+                                </svg>
+                            </button>
+                            <div id="hs-basic-active-bordered-collapse-{{ $faq->id }}"
+                                class="hs-accordion-content  @if ($key != 1) hidden @endif w-full overflow-hidden transition-[height] duration-300"
+                                role="region" aria-labelledby="hs-active-bordered-heading-{{ $faq->id }}">
+                                <div class="pb-4 px-5">
+                                    <p class="text-gray-900  ">
+                                        {{ $faq->answer }}
+                                    </p>
+                                </div>
+                            </div>
                         </div>
                     @endforeach
                 </div>
             </div>
-            <div class="col-span-6 hidden lg:block xl:block 2xl-block">
-                <div class="">
-                    <img src="{{ asset('img/faqimage.png') }}" alt="" srcset="">
+            <div class="col-span-6 hidden lg:block 2xl:block">
+                <div>
+                    <img src="{{ asset('img/faqimage.png') }}" alt="FAQ Image" />
                 </div>
             </div>
         </div>
     </div>
 </section>
-
-
