@@ -4,11 +4,11 @@
 @endphp
 
 <footer class="bg-[#0F291F]">
-    <div class="border-b border-gray-700">
-        <div class="container mx-auto grid grid-cols-12 divide-x  divide-gray-700  ">
+    <div class="lg:border-b border-gray-700">
+        <div class="container mx-auto grid grid-cols-12 lg:divide-x  divide-gray-700  ">
 
-            <div class="col-span-4 ">
-                <div class="flex items-center space-x-6 py-6 ">
+            <div class="col-span-12 md:col-span-5 lg:col-span-4 xl:col-span-4">
+                <div class="flex items-center space-x-6 py-6 px-6 ">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
                         class=" h-12 w-12  rounded-full text-[#01C778] bg-[#0C4931] p-3">
                         3
@@ -23,8 +23,8 @@
                 </div>
             </div>
 
-            <div class="col-span-4 ">
-                <div class="flex items-center space-x-6 py-6 px-6 ">
+            <div class="col-span-12 md:col-span-7 lg:col-span-5 xl:col-span-4">
+                <div class="flex items-center space-x-6 py-6 px-6  ">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" class="h-12 w-12  rounded-full text-[#01C778] bg-[#0C4931] p-3">
                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -38,7 +38,7 @@
                 </div>
             </div>
 
-            <div class="col-span-4 ">
+            <div class="col-span-12 md:col-span-6 lg:col-span-3 xl:col-span-4">
                 <div class="flex items-center space-x-6 py-6  px-6">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" class="h-12 w-12  rounded-full text-[#01C778] bg-[#0C4931] p-3">
@@ -54,11 +54,11 @@
             </div>
         </div>
     </div>
-    <div class="border-b  border-gray-700">
+    <div class="border-b divide-x   border-gray-700">
 
         <div class="container mx-auto py-5 ">
-            <div class="grid grid-cols-12   py-16">
-                <div class="col-span-3  space-y-6 ">
+            <div class="grid grid-cols-12 space-y-6   lg:py-16">
+                <div class="col-span-8 md:col-span-8 lg:col-span-5 xl:col-span-3 sm:px-6 space-y-6 ">
                     <div class="bg-white inline-block p-3 rounded">
                         <img src="{{ asset('storage/' . $site->logo) }}" class="h-12  w-48" alt="">
                     </div>
@@ -72,7 +72,7 @@
 
 
                         <a href="{{ $site->facebook_link }}">
-                            <svg class="w-14 h-14 p-4 hover:bg-[#01c778] border rounded-full text-gray-800 dark:text-white"
+                            <svg class="sm:w-14 sm:h-14 sm:p-4 h-8 w-8 p-1 hover:bg-[#01c778] border rounded-full text-gray-800 dark:text-white"
                                 aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                 fill="currentColor" viewBox="0 0 24 24">
                                 <path fill-rule="evenodd"
@@ -84,7 +84,7 @@
                         @isset($site->x_link)
 
                         <a href="{{ $site->x_link }}">
-                            <svg class="w-14 h-14 p-4 hover:bg-[#01c778] border rounded-full text-gray-800 dark:text-white"
+                            <svg class="sm:w-14 sm:h-14 sm:p-4 h-8 w-8 p-1 hover:bg-[#01c778] border rounded-full text-gray-800 dark:text-white"
                                 aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                 fill="currentColor" viewBox="0 0 24 24">
                                 <path
@@ -96,7 +96,7 @@
                         @isset( $site->linkedin_link)
                         <a href="{{ $site->linkedin_link }}">
 
-                            <svg class="w-14 h-14 p-4 hover:bg-[#01c778] border rounded-full text-gray-800 dark:text-white"
+                            <svg class="sm:w-14 sm:h-14 sm:p-4 h-8 w-8 p-1 hover:bg-[#01c778] border rounded-full text-gray-800 dark:text-white"
                                 aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                 fill="currentColor" viewBox="0 0 24 24">
                                 <path fill-rule="evenodd"
@@ -109,7 +109,7 @@
 
                         @isset($site->instagram_link)
                             <a href="{{ $site->instagram_link }}">
-                                <svg class="w-14 h-14 p-4 hover:bg-[#01c778] border rounded-full text-gray-800 dark:text-white"
+                                <svg class="sm:w-14 sm:h-14 sm:p-4 h-8 w-8 p-1 hover:bg-[#01c778] border rounded-full text-gray-800 dark:text-white"
                                     aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                     fill="none" viewBox="0 0 24 24">
                                     <path fill="currentColor" fill-rule="evenodd"
@@ -122,7 +122,7 @@
                         @isset($site->youtube_link)
                             <a href="{{ $site->youtube_link }}">
 
-                                <svg class="w-14 h-14 p-4 hover:bg-[#01c778] border rounded-full text-gray-800 dark:text-white"
+                                <svg class="sm:w-14 sm:h-14 sm:p-4 h-8 w-8 p-1 hover:bg-[#01c778] border rounded-full text-gray-800 dark:text-white"
                                     aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                     fill="currentColor" viewBox="0 0 24 24">
                                     <path fill-rule="evenodd"
@@ -134,8 +134,9 @@
 
                     </div>
                 </div>
-                <div class="col-span-3 space-y-12">
-                    <h4 class="text-2xl text-white pb-3">Services</h4>
+
+                <div class="col-span-12 md:col-span-6 lg:col-span-3 xl:col-span-3 sm:px-6 space-y-12">
+                    <h4 class="text-2xl text-white pb-3 ">Services</h4>
 
                     <a href="{{ route('portfolio.page') }}"target="_blank" class=" space-y-3">
                         <div class="flex items-center  space-x-3 hover:text-green-500 group ">
@@ -171,9 +172,8 @@
                             <p class="text-base text-white group-hover:text-green-500 font-medium">Services</p>
                         </div>
                     </a>
-
                 </div>
-                <div class="col-span-3 space-y-6">
+                <div class="col-span-12 md:col-span-4 lg:col-span-3 xl:col-span-2 sm:px-6 space-y-6">
                     <h4 class="text-2xl text-white pb-3">Resources</h4>
 
                     <a href="{{ route('portfolio.page') }}"target="_blank" class=" space-y-3">
@@ -225,7 +225,7 @@
 
                 </div>
 
-                <div class="col-span-3">
+                <div class="col-span-12 md:col-span-8 lg:col-span-6 xl:col-span-4 sm:px-6 sm:col-span-8">
                     <div class=" space-y-6">
                         <h3 class="font-semibold text-xl text-white">Subscribe To Our <br>
                             Newsletter</h3>
