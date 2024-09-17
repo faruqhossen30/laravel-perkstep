@@ -3,10 +3,10 @@
     use App\Models\Blog;
     $blogs = Blog::with('users')->get();
 @endphp
-<section class="bg-gray-100 py-6 lg:py-24">
+<section class="bg-gray-100 py-6 sm:py-12 lg:py-24">
     <div class="container mx-auto lg:px-12 xl:px-24 2xl:px-24">
         {{-- <h6 class="text-center uppercase text-[#01C778] font-bold">our blog</h6> --}}
-        <h2 class="text-center text-4xl 2xl:text-5xl 2xl:font-bold text-gray-800 font-semibold lg:leading-[56px]">How SEO London Services <br> Can Work for you</h2>
+        <h2 class="text-center text-2xl sm:text-3xl lg:text-4xl 2xl:text-5xl 2xl:font-bold text-gray-800 font-bold lg:leading-[40px]">How SEO London Services <br> Can Work for you</h2>
         <div id="ourservice" class="owl-carousel owl-theme grid grid-cols-12 gap-6 py-4 lg:py-10">
             @foreach ( $blogs as   $blog)
             <div class=" sm:col-span-12 md:col-span-6 ">
@@ -24,7 +24,7 @@
                                     6 min read
                                 </li>
                             </ul>
-                            <h3 class="text-[22px] font-bold group-hover:text-white">{{$blog->title}}</h3>
+                            <h3 class="text-xl font-bold group-hover:text-white">{{$blog->title}}</h3>
                         </div>
                         <div class="">
                             <div  class=" space-x-2">

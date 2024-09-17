@@ -1,11 +1,11 @@
 <section>
     <div class="container mx-auto">
-        <div class="lg:py-24 2xl:py-20 py-6">
+        <div class=" lg:px-16 xl:py-10 2xl:py-10 py-6">
             {{-- <h6 class="text-center uppercase text-sm text-[#01C778] font-bold">Work with us</h6> --}}
-            <h2 class="text-center text-3xl 2xl:text-5xl 2xl:font-bold sm:text-5xl text-gray-800  font-semibold lg:leading-[55px] sm:leading-[55px]">Have a project in mind? <br>
+            <h2 class="text-center text-2xl sm:text-3xl lg:text-4xl xl:text-5xl 2xl:text-5xl font-bold  text-gray-800 sm:leading-[35px] lg:leading-[40px] ">Have a project in mind? <br>
                 Let’s get to work</h2>
 
-            <div class="flex justify-center py-4 lg:py-10">
+            <div class="flex justify-center pt-4 xl:py-6">
 
                 <a href="{{route('contact.page')}}" class="inline-flex items-center justify-center bg-[#01C778] text-white font-semibold px-6 py-3 rounded-full space-x-3">
                     <p class="text-xs">Contact Us Now</p>

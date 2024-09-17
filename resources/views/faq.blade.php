@@ -3,11 +3,9 @@
     $faqs = Faq::all();
 @endphp
 <section>
-    <div class="container  mx-auto py-24 lg:px-12 xl:px-24 2xl:px-24">
-        <div class=" space-y-6 py-10">
-
-            {{-- <h6 class="text-center uppercase text-[#01C778] font-bold ">Read FAQS</h6> --}}
-            <h2 class=" text-center text-3xl sm:text-3xl md:text-4xl 2xl:text-5xl 2xl:font-bold text-gray-800  font-semibold">Our General Questions <br>Answers</h2>
+    <div class="container  mx-auto py-6 space-y-3 lg:py-24 lg:px-12 xl:px-24 2xl:px-24">
+        <div class=" space-y-6 lg:py-10">
+            <h2 class=" text-center text-2xl sm:text-3xl md:text-4xl 2xl:text-5xl font-bold text-gray-800">Our General Questions <br>Answers</h2>
         </div>
         <div class="grid grid-cols-12 lg:gap-12">
             <div class="col-span-12 sm:col-span-12 md:col-span-12 lg:col-span-6 space-y-3">
